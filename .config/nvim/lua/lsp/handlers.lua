@@ -95,8 +95,8 @@ end
 local capabilities = require('lsp.lspcmp')
 local lspconfig = require('lspconfig')
 local lsp_server_list = {
-    "sumneko_lua", "html", "cssmodules_ls", "cssls", "bashls", "jdtls",
-    "jsonls", "pyright", "ltex", "tsserver", "clangd"
+    "lua_ls", "html", "cssmodules_ls", "cssls", "bashls", "jdtls",
+    "jsonls", "pyright", "ltex", "tsserver", "clangd", "texlab"
 }
 
 for i=1, #lsp_server_list do
