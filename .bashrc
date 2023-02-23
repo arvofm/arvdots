@@ -7,6 +7,11 @@ bind -s 'set completion-ignore-case on'
 # prompt
 export PS1='\[\e[0;1;38;5;223m\][\[\e[0;38;5;204m\]\u\[\e[0;38;5;117m\]@\[\e[0;38;5;151m\]\h \[\e[0;2;38;5;251m\]\W\[\e[0;1;38;5;223m\]]\[\e[0;1;2;38;5;177m\]$ \[\e[0m\]'
 
+# functions
+open_in_mpv () {
+    mpv --fs "$1" & disown
+}
+
 # alias
 alias ls='exa --group-directories-first --icons'
 alias la='ls -a'
@@ -20,7 +25,8 @@ alias vim='nvim'
 alias du='dust'
 alias feh='feh -FZ'
 alias fehl='feh -l'
-alias mpv='mpv --fs'
+alias sxiv='sxiv -fr'
+alias mpv=open_in_mpv
 alias q='exit'
 alias sn='sudo poweroff'
 alias rb='sudo reboot'
@@ -36,7 +42,7 @@ alias ytdlppa="yt-dlp --embed-metadata --embed-thumbnail --embed-subs --write-su
 alias webcam='\mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 # a cd navigator
-. $HOME/.local/external/z/z.sh
+. "$HOME/.local/external/z/z.sh"
 
 # colorize man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
