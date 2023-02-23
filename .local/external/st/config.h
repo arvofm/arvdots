@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* I do not know anything about licensing */
 
 /*
  * appearance
@@ -96,31 +96,52 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* background opacity  */
-float alpha = 0.75;
+float alpha = 0.80;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
+    /* nord */
 	/* 8 normal colors */
-   [0] = "#101219", /* hard contrast: #1d2021 / soft contrast: #32302f */
-   [1] = "#bf616a", /* red     */
-   [2] = "#a3be8c", /* green   */
-   [3] = "#ebcb8b", /* yellow  */
-   [4] = "#81a2c1", /* blue    */
-   [5] = "#b48ead", /* magenta */
-   [6] = "#88c0d0", /* cyan    */
-   [7] = "#d9dbef", /* white   */
+   // [0] = "#101219", /* hard contrast: #1d2021 / soft contrast: #32302f */
+   // [1] = "#bf616a", /* red     */
+   // [2] = "#a3be8c", /* green   */
+   // [3] = "#ebcb8b", /* yellow  */
+   // [4] = "#81a2c1", /* blue    */
+   // [5] = "#b48ead", /* magenta */
+   // [6] = "#88c0d0", /* cyan    */
+   // [7] = "#d9dbef", /* white   */
  
-   /* 8 bright colors */
-   [8]  = "#2e3440", /* black   */
-   [9]  = "#bf616a", /* red     */
-   [10] = "#a3be8c", /* green   */
-   [11] = "#ebcb8b", /* yellow  */
-   [12] = "#81a2c1", /* blue    */
-   [13] = "#b48ead", /* magenta */
-   [14] = "#88c0d0", /* cyan    */
-   [15] = "#d9dbef", /* white   */
-};
+   // /* 8 bright colors */
+   // [8]  = "#2e3440", /* black   */
+   // [9]  = "#bf616a", /* red     */
+   // [10] = "#a3be8c", /* green   */
+   // [11] = "#ebcb8b", /* yellow  */
+   // [12] = "#81a2c1", /* blue    */
+   // [13] = "#b48ead", /* magenta */
+   // [14] = "#88c0d0", /* cyan    */
+   // [15] = "#d9dbef", /* white   */
 
+    /* gruvbox material */
+    /* 8 normal colors */
+    [0] = "#1f1f1f", /* hard contrast: #1d2021 / soft contrast: #32302f */
+    [1] = "#ea6962", /* red     */
+    [2] = "#a9b665", /* green   */
+    [3] = "#d8a657", /* yellow  */
+    [4] = "#7daea3", /* blue    */
+    [5] = "#d3869b", /* magenta */
+    [6] = "#89b482", /* cyan    */
+    [7] = "#d4be98", /* white   */
+
+    /* 8 bright colors */
+    [8]  = "#928374", /* black   */
+    [9]  = "#ef938e", /* red     */
+    [10] = "#bbc585", /* green   */
+    [11] = "#e1bb7e", /* yellow  */
+    [12] = "#9dc2ba", /* blue    */
+    [13] = "#e1acbb", /* magenta */
+    [14] = "#a7c7a2", /* cyan    */
+    [15] = "#e2d3ba", /* white   */
+};
 
 /*
  * Default colors (colorname index)
