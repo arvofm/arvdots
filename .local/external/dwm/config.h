@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* I do not know anything about licensing */
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -9,11 +9,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 6;        /* extra height for bar, default:2 */
 static const char *fonts[]          = {"FiraCode Nerd Font:size=10", "Font Awesome 5 Free:size=10", "Font Awesome 5 Brands:size=10", "Material Icons:size=10","monospace:size=10" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=14";
-static const char col_gray1[]       = "#1e2230";
+static const char col_gray1[]       = "#1f1f1f"; // "#32302f";
 static const char col_gray2[]       = "#1d2021";
-static const char col_gray3[]       = "#dadcf0";
+static const char col_gray3[]       = "#d4be98";
 static const char col_gray4[]       = "#1d2021";
-static const char col_cyan[]        = "#7dada2";
+static const char col_cyan[]        = "#845746";
 static const char col_selborders[]  = "#634751";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ "discord",     "discord",         NULL,       1 << 4,       0,           -1 },
 	{ "Lutris" ,     "lutris",          NULL,       1 << 6,       0,           -1 },
 	{ "st",             NULL,           NULL,       1,            0,           -1 },
+	{ "mpv",            "gl",           NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -71,13 +72,12 @@ static const char* termcmd[]  = { "st", NULL };
 static const char* htopcmd[]  = { "st", "-e", "htop", NULL };
 static const char* nmtuicmd[]    = { "st", "-e", "nmtui", NULL };
 static const char* rangercmd[]  = { "st", "-e", "ranger", NULL };
-static const char* browsercmd[] = { "prime-run", "qutebrowser", NULL };
+static const char* lutriscmd[] = { "prime-run", "lutris", NULL };
 static const char* discordcmd[] = { "discord", NULL };
 static const char* thunarcmd[]  = { "thunar", NULL };
+static const char* clipmpv[] = {"clipmpv", NULL};
+static const char* surfcmd[]  = { "surfonweb", NULL };
 static const char* ncmpcppcmd[] = { "st", "-e", "ncmpcpp", NULL };
-/* to be added:
-discord thunar ncmpcpp flameshot
-*/
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -90,8 +90,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,	   view,           {.ui = 1} },
 	{ MODKEY,                       XK_n,	   spawn,          {.v = nmtuicmd } },
 	{ MODKEY,                       XK_n,	   view,           {.ui = 1} },
-	{ MODKEY,                       XK_b,	   spawn,          {.v = browsercmd } },
+	{ MODKEY,                       XK_v,	   spawn,          {.v = clipmpv } },
+	{ MODKEY,                       XK_b,	   spawn,          {.v = surfcmd } },
 	{ MODKEY,                       XK_b,	   view,           {.ui = 1 << 1} },
+	{ MODKEY,                       XK_l,	   spawn,          {.v = lutriscmd } },
+	{ MODKEY,                       XK_l,	   view,           {.ui = 1 << 6} },
 	{ MODKEY,                       XK_d,	   spawn,          {.v = discordcmd } },
 	{ MODKEY,                       XK_d,	   view,           {.ui = 1 << 4} },
 	{ MODKEY,                       XK_m,	   spawn,          {.v = ncmpcppcmd } },
