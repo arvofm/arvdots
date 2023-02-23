@@ -30,6 +30,7 @@ fi
 # personal defaults
 numlockx on
 xset r rate 195 23
+xset b off
 setxkbmap -layout tr
 export SCRIPTS_DIR="$HOME/.scripts"
 export XDG_DATA_DIRS="usr/local/share:/usr/share"
@@ -45,5 +46,5 @@ batsignal -w 20 -c 10 -d 5 -W 'Battery Low' -C 'Battery Critical' -F 'Battery Ch
 dbus-run-session pulseaudio &
 mpd $HOME/.config/mpd/mpd.conf &
 sxhkd &
-xcompmgr &
+picom &
 exec dwm
