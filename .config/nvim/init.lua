@@ -9,7 +9,7 @@ require('keybinds')
 require('settings')
 
 -- colorscheme (gruvbox-material / nightfox-duskfox / rosepine)
-require('nightfox-duskfox')
+require('gruvbox-material')
 
 -- better syntax highlighting
 require('treesitter')
@@ -32,3 +32,5 @@ require('emmethtml')
 -- IDE stuff
 require('lsp')
 
+-- finally
+require('commands')
