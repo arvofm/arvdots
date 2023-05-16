@@ -18,6 +18,8 @@ echo "---------------------------------------------"
 printf "Updating local packages. \n\n"
 sleep 3
 sudo xbps-install -Syu
+sudo xbps-install -S xbps
+sudo xbps-install -Syu
 
 echo "---------------------------------------------"
 
@@ -35,8 +37,6 @@ NetworkManager-strongswan \
 Thunar \
 wget \
 acpi \
-acpi_call-dkms \
-acpica-utils \
 acpid \
 acpilight \
 adwaita-icon-theme \
@@ -48,15 +48,11 @@ attr \
 bat \
 libreoffice \
 binutils \
-bluez \
-bluez-alsa \
 cairo \
 cairomm \
 batsignal \
 gnome-calculator \
 cava \
-celt \
-cowsay \
 curl \
 dbus \
 dbus-glib \
@@ -69,7 +65,7 @@ desktop-file-utils \
 dunst \
 dust \
 elogind \
-exa \
+lsd \
 feh \
 figlet \
 firefox \
@@ -95,7 +91,6 @@ gnome-font-viewer \
 gnome-sound-recorder \
 gtk+ \
 gtk+3 \
-gtk-update-icon-cache \
 gtk4 \
 gzip \
 htop \
@@ -192,7 +187,7 @@ xcb-util \
 xclip \
 xclipboard \
 xcolor \
-xcompmgr \
+picom \
 xdg-user-dirs \
 xdg-utils \
 xfontsel \
@@ -220,13 +215,11 @@ sudo rm -rvf /var/service/wpa_supplicant
 
 sudo ln -s /etc/sv/acpid /var/service
 sudo ln -s /etc/sv/alsa /var/service
-sudo ln -s /etc/sv/bluetoothd /var/service
 sudo ln -s /etc/sv/dbus /var/service
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/polkitd /var/service
 sudo sv up acpid
 sudo sv up alsa
-sudo sv up bluetoothd
 sudo sv up dbus
 sudo sv up NetworkManager
 sudo sv up polkitd
