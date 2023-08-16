@@ -11,6 +11,7 @@ Configs for:
 * gtk-3.0
 * htop
 * mpd
+* mpv
 * ncmpcpp
 * nvim
 * qutebrowser
@@ -24,6 +25,7 @@ Dotfiles are general for all distros, setmeup.sh installs packages using the xbp
 Desktop currently uses:
 * dwm
 * dmenu
+* slock
 * st
 * slstatus
 
