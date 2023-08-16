@@ -2,10 +2,9 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/arvo/.gtkrc-2.0.mine"
-gtk-theme-name="Catppuccin-Mocha-BL"
-gtk-icon-theme-name="Catppuccin-Mocha"
+gtk-theme-name="Gruvbox-Dark-B"
+gtk-icon-theme-name="Gruvbox-Dark"
 gtk-font-name="Sans 10"
-gtk-cursor-theme-name="Plasma-Overdose"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
 gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
