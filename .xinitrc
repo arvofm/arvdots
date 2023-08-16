@@ -33,10 +33,15 @@ xset r rate 195 23
 xset b off
 setxkbmap -layout tr
 export SCRIPTS_DIR="$HOME/.scripts"
-export XDG_DATA_DIRS="usr/local/share:/usr/share"
+export XDG_DATA_DIRS="usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
+export $(dbus-launch)
 export XDG_CONFIG_HOME="$HOME/.config"
-export JAVA_HOME="$HOME/.local/external/JDK/jdk8u352-full"
-export PATH="${PATH}:${SCRIPTS_DIR}:${JAVA_HOME}/bin"
+export PATH="${PATH}:${SCRIPTS_DIR}"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_DOCUMENTS_DIR="$HOME/docs"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pics"
+
 
 
 # initials
@@ -47,4 +52,5 @@ dbus-run-session pulseaudio &
 mpd $HOME/.config/mpd/mpd.conf &
 sxhkd &
 picom &
+xautolock -time 20 -locker slock &
 exec dwm
