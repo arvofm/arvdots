@@ -8,15 +8,16 @@ bind -s 'set completion-ignore-case on'
 export PS1='\[\e[0;1;38;5;223m\][\[\e[0;38;5;204m\]\u\[\e[0;38;5;117m\]@\[\e[0;38;5;151m\]\h \[\e[0;2;38;5;251m\]\W\[\e[0;1;38;5;223m\]]\[\e[0;1;2;38;5;177m\]$ \[\e[0m\]'
 
 # functions
-open_in_mpv () {
-    mpv --fs "$1" & disown
+dizathura () {
+    zathura "$1" & disown
 }
 
 # alias
-alias ls='exa --group-directories-first --icons'
+alias ls='lsd --group-directories-first'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -vrf'
+alias mv='mv -v'
 alias cp='rsync -rphv'
 alias mkdir='mkdir -pv'
 alias grep='grep --color=auto -i'
@@ -26,7 +27,7 @@ alias du='dust'
 alias feh='feh -FZ'
 alias fehl='feh -l'
 alias sxiv='sxiv -fr'
-alias mpv=open_in_mpv
+alias mpv='mpv --fs'
 alias q='exit'
 alias sn='sudo poweroff'
 alias rb='sudo reboot'
@@ -35,10 +36,11 @@ alias xi='sudo xbps-install -Su'
 alias xq='xbps-query -l | grep'
 alias xs='xbps-query -Rs'
 alias xr='sudo xbps-remove -R'
-alias ytdlpv="yt-dlp --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*+ba'"
-alias ytdlpa="yt-dlp --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'ba'"
-alias ytdlppv="yt-dlp --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'bv*+ba'"
-alias ytdlppa="yt-dlp --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'ba'"
+alias zathura='dizathura'
+alias ytdlpv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*+ba'"
+alias ytdlpa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'ba'"
+alias ytdlppv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'bv*+ba'"
+alias ytdlppa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'ba'"
 alias webcam='\mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 # a cd navigator
