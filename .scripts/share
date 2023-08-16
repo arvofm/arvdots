@@ -1,0 +1,4 @@
+#!/bin/sh
+
+file=$(find "$HOME" -type f | dmenu -i -l 30)
+curl -F "file=@$file" 0x0.st | xclip -selection c && dunstify -a "fileshare" -u low -r 9948 "File is ready to send in  !"

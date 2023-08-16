@@ -1,0 +1,10 @@
+#!/bin/sh
+
+dunstify -a "away?" -u normal -i "power-button" -t 2000 -r 18519 "You toggled power options."
+
+AWAY_FROM_SCREEN_ANS=$(printf "Shutdown\nReboot" | dmenu -i -c -l 2 -p "Away?" -cw 300)
+
+[ "$AWAY_FROM_SCREEN_ANS" = "Shutdown" ] && loginctl poweroff
+
+[ "$AWAY_FROM_SCREEN_ANS" = "Reboot" ] && loginctl reboot
+
