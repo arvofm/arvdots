@@ -61,16 +61,17 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
+
 static const struct arg args[] = {
 	/* function format          argument */
     { separator, " ", NULL },
     { run_command, "%s", "printcurrentsong \"| \""  },
     { run_command, " %.3s%%", "pamixer --get-volume" }, /* write a script for instant change */
     { separator, " | ", NULL },
-    { run_command, "盛 %.3s%%", "xbacklight -get" }, 
+    { run_command, "󰃝 %.3s%%", "xbacklight -get" }, 
     { separator, " | ", NULL },
-    { run_command, "%s", "[ $(acpi -V | awk 'NR==1 {print $3}') = 'Charging,' ] && echo  || echo 羽"},
-    { battery_perc, " %s%%", "BAT0" },
+    { run_command, "%s", "[ $(acpi -V | awk 'NR==1 {print $3}') = 'Charging,' ] && echo  || echo  "},
+    { battery_perc, "  %s%%", "BAT0" },
     { separator, " | ", NULL },
     { wifi_essid, "󰢾 %s ","wlp7s0" },
     { separator, "| ", NULL },
