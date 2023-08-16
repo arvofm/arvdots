@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cd "$HOME/games" || exit
-prime-run java -jar minecraft.jar
-exit
-

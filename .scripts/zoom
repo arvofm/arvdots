@@ -1,5 +1,0 @@
-#!/bin/sh
-
-cd "$HOME/.local/external/zoom/" || exit
-./zoom.AppImage
-exit

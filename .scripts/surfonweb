@@ -1,7 +1,0 @@
-#!/bin/sh
-
-URL=$(cat "$HOME/.scripts/webbookmarks" | dmenu -i -c -l 30 -p "Surf" -cw 300)
-
-firefox "$URL"
-
-exit
