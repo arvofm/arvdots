@@ -6,6 +6,7 @@ c.content.blocking.adblock.lists = [ "https://easylist.to/easylist/easylist.txt"
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt"
         ];
+c.content.blocking.method = "both";
 c.content.canvas_reading = True;
 c.fonts.default_family = "Ubuntu Nerd Font";
 c.fonts.web.family.sans_serif = "Ubuntu Nerd Font"
