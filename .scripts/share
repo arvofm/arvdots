@@ -23,13 +23,13 @@ if [ -n "$FILE" ]; then
     # Conventional name recovery
     FILE="${FILE}.zip"
     # Share and copy the URL
-    curl -F "file=@${FILE}" 0x0.st | xclip -selection c && dunstify -a "fileshare" -u low -r 9948 "File is ready to send in  !"
+    curl -F "file=@${FILE}" 0x0.st | xclip -selection c && dunstify -a "fileshare" -u low -r 9949 "File is ready to send in  !"
     # Garbage collection
     rm "$FILE"
 
 # If a file is not chosen
 else
-    dunstify -a "fileshare" -u low -r 9948 "File sharing process is no more."
+    dunstify -a "fileshare" -u low -r 9949 "File sharing process is no more."
 fi
 
 exit
