@@ -2,12 +2,6 @@
 
 cd "$HOME" || exit
 
-# Check if the zipcloak command is available
-if ! command -v zipcloak &> /dev/null; then
-    dunstify -a "fileshare" -u normal -r 9948 "Zipcloak command not found. Please install it first."
-    exit 1
-fi
-
 # Find the file to be shared
 FILE=$(find "$HOME" -type f -not -path '*/\.*' -not -path '*/docker-containers/*' | dmenu -i -l 30)
 
