@@ -2,6 +2,7 @@
 -----------
 
 I did not update setmeup.sh, do not execute it to set up a base void install.
+
 I also did not update some of the config files, README will be updated when all is ready.
 
 
