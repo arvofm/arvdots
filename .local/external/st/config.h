@@ -96,34 +96,34 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* background opacity  */
-float alpha = 0.90;
+float alpha = 0.96;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
     /* nord */
 	/* 8 normal colors */
-   // [0] = "#101219", /* hard contrast: #1d2021 / soft contrast: #32302f */
-   // [1] = "#bf616a", /* red     */
-   // [2] = "#a3be8c", /* green   */
-   // [3] = "#ebcb8b", /* yellow  */
-   // [4] = "#81a2c1", /* blue    */
-   // [5] = "#b48ead", /* magenta */
-   // [6] = "#88c0d0", /* cyan    */
-   // [7] = "#d9dbef", /* white   */
- 
-   // /* 8 bright colors */
-   // [8]  = "#2e3440", /* black   */
-   // [9]  = "#bf616a", /* red     */
-   // [10] = "#a3be8c", /* green   */
-   // [11] = "#ebcb8b", /* yellow  */
-   // [12] = "#81a2c1", /* blue    */
-   // [13] = "#b48ead", /* magenta */
-   // [14] = "#88c0d0", /* cyan    */
-   // [15] = "#d9dbef", /* white   */
+    // [0] = "#181818", /* hard contrast: #1d2021 / soft contrast: #32302f */
+    // [1] = "#bf616a", /* red     */
+    // [2] = "#a3be8c", /* green   */
+    // [3] = "#ebcb8b", /* yellow  */
+    // [4] = "#81a2c1", /* blue    */
+    // [5] = "#b48ead", /* magenta */
+    // [6] = "#88c0d0", /* cyan    */
+    // [7] = "#d9dbef", /* white   */
 
-    /* gruvbox material */
+    // /* 8 bright colors */
+    // [8]  = "#2e3440", /* black   */
+    // [9]  = "#bf616a", /* red     */
+    // [10] = "#a3be8c", /* green   */
+    // [11] = "#ebcb8b", /* yellow  */
+    // [12] = "#81a2c1", /* blue    */
+    // [13] = "#b48ead", /* magenta */
+    // [14] = "#88c0d0", /* cyan    */
+    // [15] = "#d9dbef", /* white   */
+
+    /* custom gruvbox material */
     /* 8 normal colors */
-    [0] = "#1f1f1f", /* gruvbox original: #1f1f1f */
+    [0] = "#191919", /* gruvbox original: #1f1f1f */
     [1] = "#ea6962", /* red     */
     [2] = "#a9b665", /* green   */
     [3] = "#d8a657", /* yellow  */
@@ -141,6 +141,7 @@ static const char *colorname[] = {
     [13] = "#e1acbb", /* magenta */
     [14] = "#a7c7a2", /* cyan    */
     [15] = "#e2d3ba", /* white   */
+
 };
 
 /*
