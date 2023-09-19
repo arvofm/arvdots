@@ -2,7 +2,7 @@
 
 * {
   /*--tab-corner-rounding: 5px;*/
-  --animation-speed: 0.3s;
+  --animation-speed: 0.4s;
   --button-corner-rounding: 30px;
   --urlbar-container-height: 40px !important;
   --urlbar-min-height: 30px !important;
@@ -622,5 +622,254 @@ menu[_moz-menuactive='true'],
 menuitem[_moz-menuactive='true'] {
   -moz-font-smoothing-background-color: -moz-mac-active-menuitem;
   color: inherit !important;
+}
+
+
+
+
+/* ------ Clean and tight extensions menu ------ */
+
+#unified-extensions-panel #unified-extensions-view {
+    width: 100% !important; /*  For firefox v115.x */
+}
+
+#unified-extensions-view{
+    --uei-icon-size: 22px; /*  Change icon size */
+    --firefoxcss-number-of-extensions-in-a-row: 3; /*  Increase to the number of icons you want in one row */
+}
+
+#unified-extensions-view .panel-header,
+#unified-extensions-view .panel-header + toolbarseparator,
+#unified-extensions-view .panel-subview-body + toolbarseparator,
+#unified-extensions-view #unified-extensions-manage-extensions,
+#unified-extensions-view .unified-extensions-item-menu-button.subviewbutton,
+#unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents{
+    display:none !important;
+}
+
+#unified-extensions-view .panel-subview-body {
+    padding:4px !important;
+}
+
+#unified-extensions-view .unified-extensions-item .unified-extensions-item-icon, 
+#unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+    margin-inline-end: 0px !important;
+}
+
+#unified-extensions-view #overflowed-extensions-list,
+#unified-extensions-view #unified-extensions-area,
+#unified-extensions-view .unified-extensions-list {
+    display: grid !important;
+    grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row),auto);
+    justify-items:left !important;
+    align-items:left !important;
+}
+
+#unified-extensions-view .unified-extensions-list .unified-extensions-item,
+#unified-extensions-view .unified-extensions-list{
+     max-width: max-content;
+}
+
+#unified-extensions-view #unified-extensions-area {
+    padding-bottom: 3px !important;
+    border-bottom: 1px solid #aeaeae33 !important;
+}
+
+#unified-extensions-view .unified-extensions-list {
+     border-top: 1px solid #aeaeae33 !important;
+}
+
+#wrapper-edit-controls:is([place="palette"], 
+[place="panel"]) > #edit-controls, #wrapper-zoom-controls:is([place="palette"], 
+[place="panel"]) > #zoom-controls, :is(panelview, #widget-overflow-fixed-list) .toolbaritem-combined-buttons {
+  margin: 0px !important;
+}
+
+
+
+
+
+
+/* Tabs are better */
+ 
+
+/* Remove left space of toolbar  */
+
+.titlebar-spacer[type="pre-tabs"] {
+
+    display: none !important;
+
+}
+
+ 
+
+ 
+
+/* Customize window action buttons ( Close, Min, Max ) */
+
+.titlebar-button {
+
+    margin: 7px !important;
+
+    margin-left: 0 !important;
+
+    margin-right: 5px !important;
+
+    border-radius: 4px !important;
+
+}
+
+ 
+
+ 
+
+/* Apply dimmed background for inactive tabs */
+
+.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected], [multiselected]) {
+
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+
+}
+
+.tabbrowser-tab>.tab-stack>.tab-background:not([selected], [multiselected]) {
+
+    background-color: color-mix(in srgb, currentColor 6%, transparent);
+
+}
+
+ 
+
+ 
+
+/* Make all tabs small except selected one */
+
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {  
+
+    max-width: 145px !important;
+
+    min-width: 115px !important;
+
+}
+
+ 
+
+ 
+
+/* Selected tabs width */
+
+.tabbrowser-tab[selected][fadein]:not([pinned]) {  
+
+    /*max-width: 225px !important;*/
+
+    min-width: 205px !important;
+
+}
+
+ 
+
+ 
+
+/* Hide tab close button */
+
+#TabsToolbar .close-icon {
+
+    display: none !important;
+
+}
+
+ 
+
+ 
+
+/* Unhide close button when it is selected tab and not pinned */
+
+#TabsToolbar .tabbrowser-tab[selected=true]:not([pinned]) .close-icon {
+
+    display: -moz-box !important;
+
+}
+
+ 
+
+ 
+
+/* Show close button even when mouse hover on inactive tabs */
+
+#TabsToolbar .tabbrowser-tab:not([selected="true"]):not([pinned]):hover .close-icon{
+
+    display: -moz-box !important;
+
+}
+
+ 
+
+ 
+
+/* Reduce spacing between pinned and regular tabs */
+
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab[first-visible-unpinned-tab] { 
+
+    margin-inline-start: initial !important; 
+
+}
+
+ 
+
+ 
+
+/* Menu items border and padding */
+
+menupopup > menuitem,
+
+menupopup > menu {
+
+    border-radius: 4px !important;
+
+    margin-left: 4px !important;
+
+    margin-right: 4px !important;
+
+}
+
+ 
+
+ 
+
+/* context menu top left button padding */
+
+menugroup > menuitem:first-child {  
+
+    padding-left: 4px !important;
+
+}
+
+ 
+
+ 
+
+/* context menu top right button padding */
+
+menugroup > menuitem:last-child {  
+
+    padding-right: 4px !important;
+
+}
+
+ 
+
+ 
+
+/* context menu top buttons radius */
+
+menugroup > menuitem {
+
+    border-radius: 4px !important;
+
+}
+
+menugroup > menuitem > hbox > image {  
+
+    border-radius: 4px !important;
+
 }
 
