@@ -1,7 +1,7 @@
 ## WARNING
 -----------
 
-I did not update setmeup.sh, do not execute it to set up a base void install.
+I did not update setmeup.sh, **do not** execute it to set up a base void install.
 
 Though all other files are up to date, screenshots are only deprecated with colorschemes in dwm and vim.
 
