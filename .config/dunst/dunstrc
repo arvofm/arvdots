@@ -114,3 +114,5 @@
     frame_color = "#ca2821"
     timeout = 10
     default_icon = "dialog-error"
+
+
