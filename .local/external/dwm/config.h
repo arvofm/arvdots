@@ -9,11 +9,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 6;        /* extra height for bar, default:2 */
 static const char *fonts[]          = {"FiraCode Nerd Font:size=10", "Font Awesome 5 Free:size=10", "Font Awesome 5 Brands:size=10", "Material Icons:size=10","monospace:size=10" };
 static const char dmenufont[]       = "FiraCode Nerd Font:size=14";
-static const char col_gray1[]       = "#111a23"; // background
-static const char col_gray2[]       = "#111a23";
+static const char col_gray1[]       = "#191919"; // background
+static const char col_gray2[]       = "#191919";
 static const char col_gray4[]       = "#eceff4"; // app is open text
 static const char col_gray3[]       = "#eceff4"; // text
-static const char col_cyan[]        = "#2d333f"; // app is open background
+static const char col_cyan[]        = "#2D2D2D"; // app is open background
 static const char col_selborders[]  = "#634751"; // window borders
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
