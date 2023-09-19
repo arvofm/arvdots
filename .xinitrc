@@ -52,5 +52,5 @@ dbus-run-session pulseaudio &
 mpd $HOME/.config/mpd/mpd.conf &
 sxhkd &
 picom &
-xautolock -time 20 -locker slock &
+xautolock -time 25 -locker slock &
 exec dwm
