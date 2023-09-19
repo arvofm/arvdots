@@ -31,7 +31,8 @@ Configs for:
 #### Usage
 ----------
 Dotfiles are general for all distros, setmeup.sh installs packages using the xbps package manager.
-\ Desktop currently uses:
+
+Desktop currently uses:
 * dwm
 * dmenu
 * slock
@@ -40,13 +41,17 @@ Dotfiles are general for all distros, setmeup.sh installs packages using the xbp
 
 #### How It Looks Like
 ----------------------
+
 Desktop with terminal
+
 ![Desktop](./screenshots/s1.png)
 
 Desktop with nvim
+
 ![Nvim](./screenshots/s2.png)
 
 #### Then
 ---------
 *setmeup.sh* is meant to be used for/after a base install when a connection to a network is established.
+
 Run *setmeup.sh* inside `HOME/repo`.
