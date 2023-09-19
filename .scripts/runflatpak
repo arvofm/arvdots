@@ -1,0 +1,5 @@
+#!/bin/bash
+
+APP_TO_RUN=$(tail -n +1 <<< "$(flatpak list --app --columns=application)" | dmenu -i -c -l 30 -p "Run Flatpak" -cw 500)
+
+flatpak run "$APP_TO_RUN"

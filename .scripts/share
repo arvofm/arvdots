@@ -1,0 +1,35 @@
+#!/bin/bash
+
+cd "$HOME" || exit
+
+# Find the file to be shared
+FILE=$(find "$HOME" -type f -not -path '*/\.*' -not -path '*/docker-containers/*' -not -path '*/porn/*' | dmenu -i -l 30)
+
+# If a file is chosen
+if [ -n "$FILE" ]; then
+    # Grab a dynamic password from user input
+    PASSWORD=$(dmenu -c -f -cw 1000 -p "Password for the to be shared file:")
+
+    # If a password is chosen
+    if [ -n "$PASSWORD" ]; then
+        dunstify -a "fileshare" -u low -r 9948 "Password for to be shared file:" "$PASSWORD"
+        # Zip the file encrypted
+        zip -j -P "$PASSWORD" "${FILE}.zip" "$FILE"
+    else
+        dunstify -a "fileshare" -u low -r 9948 "The file will be shared password free."
+        # Zip the file without encryption
+        zip -j "${FILE}.zip" "$FILE"
+    fi
+    # Conventional name recovery
+    FILE="${FILE}.zip"
+    # Share and copy the URL
+    curl -F "file=@${FILE}" 0x0.st | xclip -selection c && dunstify -a "fileshare" -u low -r 9949 "File is ready to send in  !"
+    # Garbage collection
+    rm "$FILE"
+
+# If a file is not chosen
+else
+    dunstify -a "fileshare" -u low -r 9949 "File sharing process is no more."
+fi
+
+exit

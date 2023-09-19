@@ -1,0 +1,10 @@
+#!/bin/bash
+
+intern="eDP-1"
+extern="HDMI-1-0"
+
+case "$1" in
+    "disconnect") xrandr --output "$extern" --off --output "$intern" --auto ;;
+    "duplicate") xrandr --output "$extern" --auto --mode 1920x1080 --rate 60.00 --same-as "$intern" ;;
+    *) notify-send "Multi Monitor" "Unknow Operation" ;;
+esac

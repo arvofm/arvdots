@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd "$HOME/.local/external/tetrio" || exit
+
+optirun ./tetrio-desktop
+
+exit

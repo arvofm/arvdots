@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "$HOME/docs/docker-containers/freshrss/" || exit
+sudo docker-compose down && notify-send "docker-compose" "FreshRSS localhost is down!"
+cd "$HOME" || exit

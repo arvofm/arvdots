@@ -1,0 +1,7 @@
+#!/bin/bash
+
+clear
+
+curl wttr.in
+
+exit
