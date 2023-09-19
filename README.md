@@ -3,8 +3,9 @@
 
 I did not update setmeup.sh, do not execute it to set up a base void install.
 
-I also did not update some of the config files, README will be updated when all is ready.
+Though all other files are up to date, screenshots are only deprecated with colorschemes in dwm and vim.
 
+README will be updated when all is ready.
 
 ## My Minimal Void Linux Desktop
 --------------------------------
