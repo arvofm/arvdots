@@ -1,7 +1,7 @@
 ## WARNING
 -----------
 
-I did not update `setmeup.sh`, **do not** execute it to set up a base void install.
+I did not update *setmeup.sh*, **do not** execute it to set up a base void install.
 
 Though all other files are up to date, screenshots are only deprecated with colorschemes in dwm and vim.
 
@@ -48,5 +48,5 @@ Desktop with nvim
 
 #### Then
 ---------
-setmeup.sh is meant to be used for/after a base install when a connection to a network is established.
-Run setmeup.sh inside HOME/repo.
+*setmeup.sh* is meant to be used for/after a base install when a connection to a network is established.
+Run *setmeup.sh* inside `HOME/repo`.
