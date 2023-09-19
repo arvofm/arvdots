@@ -1,5 +1,0 @@
-#!/bin/bash
-URL="$(xclip -selection clipboard -o)"
-[ -n "${URL}" ] && mpv -fs "${URL}"
-
-exit
