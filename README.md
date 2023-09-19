@@ -31,7 +31,7 @@ Configs for:
 #### Usage
 ----------
 Dotfiles are general for all distros, setmeup.sh installs packages using the xbps package manager.
-Desktop currently uses:
+\ Desktop currently uses:
 * dwm
 * dmenu
 * slock
