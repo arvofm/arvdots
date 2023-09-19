@@ -8,8 +8,9 @@ require('plugins')
 require('keybinds')
 require('settings')
 
--- colorscheme (gruvbox-material / nightfox-duskfox / rosepine)
-require('gruvbox-material')
+-- colorscheme
+-- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa / real-gruvbox / melange / zenbones-wtf / baby-gruvbox / habamax / slate / mellifluus / phoenix)
+require('phoenix')
 
 -- better syntax highlighting
 require('treesitter')
