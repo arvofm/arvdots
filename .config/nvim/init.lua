@@ -9,7 +9,7 @@ require('keybinds')
 require('settings')
 
 -- colorscheme
--- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa / real-gruvbox / melange / zenbones-wtf / baby-gruvbox / habamax / slate / mellifluus / phoenix)
+-- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa-colorscheme / real-gruvbox / phoenix)
 require('phoenix')
 
 -- better syntax highlighting
@@ -39,5 +39,5 @@ require('vimtex')
 -- snippets
 require('ultisnips')
 
--- finally
+-- finally, all my own
 require('commands')
