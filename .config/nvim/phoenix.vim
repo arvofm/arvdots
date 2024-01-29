@@ -91,7 +91,7 @@ endif
 " Text Markup
 " ----------------------------------------------------------------------------
 
-hi Normal                     guifg=#CCCCCC guibg=#191919 gui=NONE      ctermfg=250
+hi Normal                     guifg=#CCCCCC guibg=NONE    gui=NONE      ctermfg=250
 hi NonText                    guifg=#6A6A6A guibg=NONE    gui=NONE      ctermfg=008
 hi Comment                    guifg=#555555 guibg=NONE    gui=NONE      ctermfg=243
 hi Constant                   guifg=#40BDFF guibg=NONE    gui=NONE      ctermfg=039
