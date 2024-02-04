@@ -50,10 +50,7 @@ alias grep='grep --color=auto -i'
 alias du='du -h'
 alias cat='bat'
 alias vim='nvim'
-alias feh='feh -FZ'
-alias fehl='feh -l'
-alias sxiv='sxiv -fr'
-alias mpv='mpv --fs'
+alias imv='imv -f'
 alias speedtest='speedtest --secure'
 alias zathura='__zathura'
 abbr q 'exit'
@@ -77,10 +74,7 @@ abbr ffaudiorecord 'ffmpeg -f pulse -i 1'
 abbr ffaudiocut 'ffmpeg -i input.m4a -ss 00:00:00 -t 00:00:10 -acodec copy output.m4a'
 
 if status --is-login
-    set -gx EDITOR "nvim"
-    set -gx TERMINAL "st"
-    set -gx BROWSER "librewolf"
-    set -gx TEXLIVE "/usr/share"
 
-    [ "$(tty)" = "/dev/tty1" ] && bash -c "startx"
+    [ "$(tty)" = "/dev/tty1" ] && bash -c "~/.scripts/startw"
+
 end
