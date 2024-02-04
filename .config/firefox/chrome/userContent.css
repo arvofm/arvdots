@@ -185,12 +185,13 @@ html#devtools-webconsole body.theme-sidebar main#app-wrapper.theme-body div.webc
 .theme-body.devtools-monospace .CodeMirror-scroll{background-color: color-mix(in srgb, currentColor 5%, -moz-Dialog) !important;}
 
 /*  Tabs  */
+    /*
 .outline-filter{border: none !important;}
 .tabs, .sources-panel{background-color: -moz-Dialog !important}
 .tabs-navigation, .source-outline-tabs{background-color: color-mix(in srgb, currentColor 3%, -moz-Dialog) !important; border: none !important; padding: 0 10px 0 5px; border-radius: 10px !important; margin: 3px !important}
 .all-tabs-menu{right: 10px !important; background-color: transparent !important; border: none !important;}
 .panels{background-color: -moz-Dialog !important}
-pre{margin-right: 20px;}
+pre{margin-right: 20px;}*/
 
 /*  Network  */
 .request-list-container{background: -moz-Dialog !important;}
