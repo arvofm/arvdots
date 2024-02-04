@@ -1,0 +1,3 @@
+#!/bin/bash
+
+spt -e "mpv --loop=2 $HOME/pics/notification.oga" -n "dunstify"

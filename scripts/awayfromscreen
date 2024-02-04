@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#
+# Shutdown or reboot the system, with a neat interface using dmenu or bemenu
+#
+
+# Just a notification
+dunstify -a "awayfromscreen" -u normal -i "power-button" -t 2000 -r 18519 "You toggled power options."
+
+# If using wayland, ask using bemenu for Shutdown / Reboot
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    AWAY_FROM_SCREEN_ANS=$(printf "Shutdown\nReboot" | bemenu -i -w -c -l 2 --fixed-height -p "Away?" -B 1 -R 5 -H 30 -W 0.15)
+
+# If using X11, ask using dmenu for Shutdown / Reboot
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    AWAY_FROM_SCREEN_ANS=$(printf "Shutdown\nReboot" | dmenu -i -c -l 2 -p "Away?" -cw 300)
+
+# If cannot detect wayland or X11, exit
+else
+    dunstify -a "awayfromscreen" -u critical -i "power-button" -t 5000 -r 18519 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+fi
+
+# For an answer, perform the operation
+if [ -n "$AWAY_FROM_SCREEN_ANS" ]; then
+
+[ "$AWAY_FROM_SCREEN_ANS" = "Shutdown" ] && loginctl poweroff
+
+[ "$AWAY_FROM_SCREEN_ANS" = "Reboot" ] && loginctl reboot
+
+else
+    exit 0
+fi

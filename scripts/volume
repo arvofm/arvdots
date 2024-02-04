@@ -1,0 +1,83 @@
+#!/bin/sh
+
+#
+# A neat volume control interface that uses pamixer
+# USAGE:
+# volume [OPTS] [VAL]
+# OPTIONS:
+# -inc <val>        increase volume <val> much
+# -dec <val>        decrease volume <val> much
+# -set <val>        set volume to <val>
+# -mute             mute volume
+# -unmute           unmute volume
+# -toggle           toggle volume: mute/unmute
+# -mictoggle        toggle mic: mute/unmute
+#
+
+update_volume_notification_icon() {
+    CURRENT_VOLUME=$(pamixer --get-volume)
+    [ "$CURRENT_VOLUME" -gt 0 ] && ICON_VOLUME="audio_on"
+    [ "$CURRENT_VOLUME" = 0 ] && ICON_VOLUME="audio_off"
+    [ "$(pamixer --get-mute)" = "true" ] && ICON_VOLUME="audio_muted"
+}
+
+case "$1" in
+-inc)
+    pamixer -u
+    pamixer -i "$2" --allow-boost 
+    update_volume_notification_icon
+    if [ "$CURRENT_VOLUME" -gt 100 ]; then
+        dunstify -a "incvolume" -u low -r 9946 -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    else
+        dunstify -a "incvolume" -u low -r 9946 -h int:value:"$CURRENT_VOLUME" -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    fi
+    ;;
+-dec)
+    pamixer -u
+    pamixer -d "$2" --allow-boost
+    update_volume_notification_icon
+    dunstify -a "decvolume" -u low -r 9946 -h int:value:"$CURRENT_VOLUME" -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    ;;
+-mute)
+    pamixer -m
+    update_volume_notification_icon
+    dunstify -a "mutevolume" -u low -r 9946 -h -i "audio_muted" "Audio Muted"
+    ;;
+-unmute)
+    pamixer -u
+    update_volume_notification_icon
+    dunstify -a "unmutevolume" -u low -r 9946 -h int:value:"$CURRENT_VOLUME" -i "$ICON_VOLUME" "Audio Unmuted, Volume: ${CURRENT_VOLUME}%"
+    ;;
+-toggle)
+    pamixer -t
+    update_volume_notification_icon
+    if [ "$(pamixer --get-mute)" = "true" ]; then
+        dunstify -a "togglevolume" -u low -r 9946 -i "$ICON_VOLUME" "Audio Muted"
+    else
+        dunstify -a "unmutevolume" -u low -r 9946 -h int:value:"$CURRENT_VOLUME" -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    fi
+    ;;
+-mictoggle)
+    pactl set-source-mute 1 toggle
+    update_volume_notification_icon
+    if [ "$(pactl get-source-mute 1)" = "Mute: yes" ]; then
+        dunstify -a "mictoggle" -u low -r 9946 -i "mic_off" "Mic Muted"
+    else
+        dunstify -a "mictoggle" -u low -r 9946 -i "mic_on" "Mic Unmuted"
+    fi
+    ;;
+-set)
+    pamixer --set-volume "$2"
+    update_volume_notification_icon
+    if [ "$CURRENT_VOLUME" -gt 100 ]; then
+        dunstify -a "setvolume" -u low -r 9946 -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    else
+        dunstify -a "setvolume" -u low -r 9946 -h int:value:"$CURRENT_VOLUME" -i "$ICON_VOLUME" "Volume: ${CURRENT_VOLUME}%"
+    fi
+    ;;
+*)
+    echo 'Usage: volume -set -inc -dec -mute -unmute -toggle -mictoggle'
+    ;;
+esac
+
+

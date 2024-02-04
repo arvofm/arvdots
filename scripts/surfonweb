@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    URL=$(cat "$HOME/.scripts/webbookmarks" | bemenu -i -w -c -l 25 --fixed-height -p "Surf" -B 1 -R 5 -H 23 -W 0.4)
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    URL=$(cat "$HOME/.scripts/webbookmarks" | dmenu -i -c -l 30 -p "Surf" -cw 300)
+
+else
+    dunstify -a "surfonweb" -u critical -t 5000 -r 66318 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+fi
+
+[ -n "$URL" ] && flatpak run io.gitlab.librewolf-community "$URL"
+
+exit 0
