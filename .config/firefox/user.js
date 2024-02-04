@@ -37,7 +37,13 @@ user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 
-/** MISC **/
+/** STYLES **/
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("layers.acceleration.force-enabled", true);
+user_pref("gfx.webrender.all", true);
+user_pref("svg.context-properties.content.enabled", true);
+
+/** NO TRANSLATIONS PLEASE **/
 user_pref("browser.translations.automaticallyPopup", false);
 user_pref("browser.translations.enable", false);
 user_pref("browser.translations.panelShown", false);
