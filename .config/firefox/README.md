@@ -1,5 +1,5 @@
 ## Firefox / Librewolf Contents
-I like to keep my configs apart from auto sync, which in this case the mozilla handles.
+I like to keep my configs apart from auto sync, which in this case Mozilla handles.
 
 So the last element, addons I will always use:
 * [Bookmarks Start Page](https://addons.mozilla.org/en-US/firefox/addon/bookmarks-start-page/)
