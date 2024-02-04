@@ -11,7 +11,7 @@
     width = (250, 400)
     height = 300
     origin = top-right
-    offset = 25x45
+    offset = 20x25
     scale = 0   # auto: 0
     notification_limit = 10
 
@@ -37,7 +37,7 @@
 
     ### Text ###
 
-    font = "FiraCode Nerd Fonr 10"
+    font = "FiraCode Nerd Font 10"
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -66,7 +66,6 @@
 
     ### Misc ###
 
-    dmenu = /usr/local/bin/dmenu -p dunst:
     browser = /usr/bin/xdg-open
     always_run_script = true
     title = Dunst
@@ -98,19 +97,19 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#1f1f1f"
-    foreground = "#d3bd97"
+    background = "#191919DD"
+    foreground = "#CDD6F4"
     timeout = 5
 
 [urgency_normal]
-    background = "#1f1f1f"
-    foreground = "#d3bd97"
+    background = "#11111C"
+    foreground = "##FFDC42"
     timeout = 7
     default_icon = "dialog-warning"
 
 [urgency_critical]
-    background = "#1f1f1f"
-    foreground = "#d3bd97"
+    background = "#11111C"
+    foreground = "##FFDC42"
     frame_color = "#ca2821"
     timeout = 10
     default_icon = "dialog-error"
