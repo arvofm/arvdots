@@ -22,17 +22,22 @@ user_pref("network.ssl_tokens_cache_capacity", 10240);
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("toolkit.telemetry.unified", false);
-user_pref("toolkit.telemetry.enabled", false); // see [NOTE]
+user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.server", "data:,");
 user_pref("toolkit.telemetry.archive.enabled", false);
-user_pref("toolkit.telemetry.newProfilePing.enabled", false); // [FF55+]
-user_pref("toolkit.telemetry.shutdownPingSender.enabled", false); // [FF55+]
-user_pref("toolkit.telemetry.updatePing.enabled", false); // [FF56+]
-user_pref("toolkit.telemetry.bhrPing.enabled", false); // [FF57+] Background Hang Reporter
-user_pref("toolkit.telemetry.firstShutdownPing.enabled", false); // [FF57+]
-user_pref("toolkit.telemetry.coverage.opt-out", true); // [HIDDEN PREF]
-user_pref("toolkit.coverage.opt-out", true); // [FF64+] [HIDDEN PREF]
+user_pref("toolkit.telemetry.newProfilePing.enabled", false);
+user_pref("toolkit.telemetry.shutdownPingSender.enabled", false);
+user_pref("toolkit.telemetry.updatePing.enabled", false);
+user_pref("toolkit.telemetry.bhrPing.enabled", false);
+user_pref("toolkit.telemetry.firstShutdownPing.enabled", false);
+user_pref("toolkit.telemetry.coverage.opt-out", true);
+user_pref("toolkit.coverage.opt-out", true);
 user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+
+/** MISC **/
+user_pref("browser.translations.automaticallyPopup", false);
+user_pref("browser.translations.enable", false);
+user_pref("browser.translations.panelShown", false);
