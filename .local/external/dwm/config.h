@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { ">_", "www", "</>", "|#|", "^_^", "|>", "*?*", "~/", "69" };
+static const char *tags[] = { ">_", "www", "</>", "|#|", "^_^", "|>", "*?*", "../", "69" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -36,7 +36,7 @@ static const Rule rules[] = {
 	{ "Joplin",        "joplin",        NULL,       1 << 3,       0,           -1 },
 	{ "discord",     "discord",         NULL,       1 << 4,       0,           -1 },
 	{ "whatsapp-desktop-linux",     "whatsapp-desktop-linux", NULL, 1 << 4, 0, -1 },
-    { "obsidian",    "obsidian",        NULL,       1 << 3,       0,           -1 },
+    { "obsidian",    "obsidian",        NULL,       1 << 7,       0,           -1 },
 	{ "Lutris" ,     "lutris",          NULL,       1 << 6,       0,           -1 },
 	{ "st",             NULL,           NULL,       1,            0,           -1 },
 	{ "mpv",            "gl",           NULL,       1 << 5,       0,           -1 },
@@ -73,19 +73,21 @@ static const char* termcmd[]  = { "st", NULL };
 static const char* htopcmd[]  = { "st", "-e", "htop", NULL };
 static const char* nmtuicmd[]    = { "st", "-e", "nmtui", NULL };
 static const char* rangercmd[]  = { "st", "-e", "ranger", NULL };
-static const char* lutriscmd[] = { "prime-run", "lutris", NULL };
 static const char* discordcmd[] = { "flatpak", "run", "com.discordapp.Discord" };
 static const char* thunarcmd[]  = { "thunar", NULL };
 static const char* clipmpv[] = {"clipmpv", NULL};
+static const char* sclockcmd[] = {"slock", NULL};
 static const char* pastetompv[] = {"pastetompv", NULL};
 static const char* surfcmd[]  = { "surfonweb", NULL };
 static const char* ncmpcppcmd[] = { "st", "-e", "ncmpcpp", NULL };
 static const char* runflatpak[] = {"runflatpak", NULL};
+static const char* killflatpak[] = {"killflatpak", NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = runflatpak } },
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          {.v = killflatpak } },
     { MODKEY,                       XK_t,	   spawn,          {.v = termcmd } },
     { MODKEY,                       XK_t,	   view,           {.ui = 1} },
 	{ MODKEY,                       XK_h,	   spawn,          {.v = htopcmd } },
@@ -99,12 +101,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,	   view,           {.ui = 1 << 5} },
 	{ MODKEY,                       XK_b,	   spawn,          {.v = surfcmd } },
 	{ MODKEY,                       XK_b,	   view,           {.ui = 1 << 1} },
-	{ MODKEY,                       XK_l,	   spawn,          {.v = lutriscmd } },
+	{ MODKEY,                       XK_l,	   spawn,          {.v = sclockcmd } },
 	{ MODKEY,                       XK_l,	   view,           {.ui = 1 << 6} },
 	{ MODKEY,                       XK_d,	   spawn,          {.v = discordcmd } },
 	{ MODKEY,                       XK_d,	   view,           {.ui = 1 << 4} },
 	{ MODKEY,                       XK_m,	   spawn,          {.v = ncmpcppcmd } },
 	{ MODKEY,                       XK_f,	   spawn,          {.v = thunarcmd } },
+
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -123,8 +126,7 @@ static Key keys[] = {
     { MODKEY,                       XK_Left,   viewtoleft,     {0} },
     { MODKEY,                       XK_Right,  viewtoright,    {0} },
     { MODKEY|ShiftMask,             XK_Left,   tagtoleft,      {0} },
-    { MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+    { MODKEY|ShiftMask,             XK_Right,  tagtoright,     {0} }, { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
