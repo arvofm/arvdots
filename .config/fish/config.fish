@@ -69,7 +69,7 @@ alias ytdlpv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumb
 alias ytdlpa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'ba'"
 alias ytdlppv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'bv*+ba'"
 alias ytdlppa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'ba'"
-abbr webcam '\mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+abbr webcam 'mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 abbr ffaudiorecord 'ffmpeg -f pulse -i 1'
 abbr ffaudiocut 'ffmpeg -i input.m4a -ss 00:00:00 -t 00:00:10 -acodec copy output.m4a'
 
