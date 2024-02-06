@@ -14,5 +14,7 @@ My own scripts, some config files in `.config` and `.local/external` use these c
 
 ### others ?
 `.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11.
+
 `.fehbg`: Sets wallpaper using feh.
+
 `inst.txt`: I use these pieces of software nowadays.
