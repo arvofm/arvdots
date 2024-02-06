@@ -13,6 +13,6 @@ These are the software that I prefer to install externally, which generally incl
 My own scripts, some config files in `.config` and `.local/external` use these custom scripts to make life easier. If you want to use these, rename the directory name to `.scripts`. 
 
 ### others ?
-`.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11. \\
-`.fehbg`: Sets wallpaper using feh. \\
-`inst.txt`: I use these pieces of software nowadays.
+* `.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11.
+* `.fehbg`: Sets wallpaper using feh.
+* `inst.txt`: I use these pieces of software nowadays.
