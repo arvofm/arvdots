@@ -40,11 +40,12 @@ sudo xbps-install -S xbps
 
 2. I want to use the LTS version of linux.
 ```bash
+sudo xbps-install -S linux-base linux-lts linux-lts-headers
+
 cd /etc/xbps.d/
 sudo echo "ignorepkg=linux" >> xbps.conf
 sudo echo "ignorepkg=linux-headers" >> xbps.conf
 
-sudo xbps-install -S linux-base linux-lts linux-lts-headers
 sudo reboot
 ```
 After reboot, remove the latest kernel.
