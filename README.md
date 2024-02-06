@@ -16,4 +16,5 @@ My own scripts, some config files in `.config` and `.local/external` use these c
 * `.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11.
 * `.fehbg`: Sets wallpaper using feh.
 * `inst.txt`: I use these pieces of software nowadays.
+* `guide.md`: A guide to build up from a base install of void linux, written for myself.
 * `lez-rainbow3.png`: Just a wallpaper.
