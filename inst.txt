@@ -164,8 +164,6 @@ nicotine+
 nodejs
 noto-fonts-ttf
 numlockx
-nvidia
-nvidia-libs-32bit
 nvtop
 nwg-look
 openjdk21
@@ -279,3 +277,7 @@ zathura-pdf-poppler
 zeal
 zenity
 zip
+
+nvidia
+nvidia-libs
+nvidia-libs-32bit
