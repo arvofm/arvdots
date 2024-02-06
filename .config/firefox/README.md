@@ -13,3 +13,5 @@ So the last element, addons I will always use:
 * [Tab Session Manager](https://addons.mozilla.org/en-US/firefox/addon/tab-session-manager/)
 * [UBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
 * [Unhook - YouTube](https://addons.mozilla.org/en-US/firefox/addon/youtube-recommended-videos/)
+
+Additionally, I'd like my unnecessary data to be deleted when I exit the browser, the file `keepmydata.txt` includes the exceptional links of websites.
