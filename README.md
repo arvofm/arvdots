@@ -1,5 +1,6 @@
-<h1 style="text-align: center"> ArvDots </h1>
-
+---
+ArvDots
+---
 
 This is a collection of common dotfiles I use from time to time. Beware that when all the dotfiles are used in a single system, there will certainly be some configs you will not use. Please surf through the repository and manually use the ones you personally choose to.
 
