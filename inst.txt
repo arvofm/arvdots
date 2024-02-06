@@ -24,7 +24,6 @@ bemenu
 binutils
 brightnessctl
 btop
-bubblewrap
 cc
 chrony
 cliphist
@@ -174,10 +173,6 @@ openjdk21-jre
 openssh
 pamixer
 pavucontrol
-perl-CPAN-Changes
-perl-CPAN-Common-Index
-perl-CPAN-DistnameInfo
-perl-CPAN-Meta-Check
 pfetch
 php
 pick
@@ -222,7 +217,6 @@ swaylock
 syncthing
 sysstat
 texlive
-texlive-full
 thunar-archive-plugin
 thunar-media-tags-plugin
 torbrowser-launcher
