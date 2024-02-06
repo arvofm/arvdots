@@ -1,57 +1,17 @@
-## WARNING
------------
+<h1 style="text-align: center"> ArvDots </h1>
+***
+This is a collection of common dotfiles I use from time to time. Beware that when all the dotfiles are used in a single system, there will certainly be some configs you will not use. Please surf through the repository and manually use the ones you personally choose to.
 
-I did not update *setmeup.sh*, **do not** execute it to set up a base void install.
+### .config ?
+There are all kinds of standard config files in `.config` directory, they are not ultimately customized, and serve as a general template for those who wants to further customize their system; or you can use them as they are.
 
-Though all other files are up to date, screenshots are only deprecated with colorschemes in dwm and vim.
+### .local/external ?
+These are the software that I prefer to install externally, which generally includes [Suckless](suckless.org)' software. This directory includes my configurations and patches which make the suckless software bearable. I don't know much about licensing; so if there is anything wrong, just warn me and I will fix the issue.
 
-README will be updated when all is ready.
+### scripts ?
+My own scripts, some config files in `.config` and `.local/external` use these custom scripts to make life easier. If you want to use these, rename the directory name to `.scripts`. 
 
-## My Minimal Void Linux Desktop
---------------------------------
-
-Desktop dotfiles, scripts and other apps for portable dev environment.
-
-Configs for:
-* btop
-* cava
-* dunst
-* firefox
-* gtk-3.0
-* htop
-* mpd
-* mpv
-* ncmpcpp
-* nvim
-* qutebrowser
-* ranger
-* sxhkd
-* zathura
-
-#### Usage
-----------
-Dotfiles are general for all distros, setmeup.sh installs packages using the xbps package manager.
-
-Desktop currently uses:
-* dwm
-* dmenu
-* slock
-* st
-* slstatus
-
-#### How It Looks Like
-----------------------
-
-Desktop with terminal
-
-![Desktop](./screenshots/s1.png)
-
-Desktop with nvim
-
-![Nvim](./screenshots/s2.png)
-
-#### Then
----------
-*setmeup.sh* is meant to be used for/after a base install when a connection to a network is established.
-
-Run *setmeup.sh* inside `HOME/repo`.
+### others ?
+`.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11.
+`.fehbg`: Sets wallpaper using feh.
+`inst.txt`: I use these pieces of software nowadays.
