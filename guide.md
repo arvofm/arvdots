@@ -1,4 +1,7 @@
+### A Base System Install Guide for Myself
+
 This file contains a somewhat consistent manual for a base install. For the installation of Void Linux, consult to [official Void Linux installation guide](https://docs.voidlinux.org/installation/live-images/guide.html).
+
 
 Appearently, I'm in the groups "`wheel` `floppy` `audio` `video` `cdrom` `optical` `network` `kvm` `input` `xbuilder` `_seatd` ".
 
