@@ -9,6 +9,6 @@ else
     dunstify -a "surfonweb" -u critical -t 5000 -r 66318 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
 fi
 
-[ -n "$URL" ] && flatpak run io.gitlab.librewolf-community "$URL"
+[ -n "$URL" ] && firefox "$URL"
 
 exit 0
