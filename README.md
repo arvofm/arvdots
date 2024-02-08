@@ -10,7 +10,7 @@ There are all kinds of standard config files in `.config` directory, they are no
 These are the software that I prefer to install externally, which generally includes [Suckless](suckless.org)' software. This directory includes my configurations and patches which make the suckless software bearable. I don't know much about licensing; so if there is anything wrong, just warn me and I will fix the issue.
 
 ### scripts ?
-My own scripts, some config files in `.config` and `.local/external` use these custom scripts to make life easier. If you want to use these, rename the directory name to `.scripts`, and make sure to add this path to $PATH.
+My own scripts, some config files in `.config` and `.local/external` use these custom scripts to make life easier. If you want to use these, rename the directory name to `.scripts`, and make sure to add this path to `$PATH`.
 
 ### others ?
 * `.xinitrc`: Just a copy of the official xinitrc, from the times I used dwm and X11.
