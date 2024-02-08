@@ -44,7 +44,7 @@ export XCURSOR_SIZE=12
 export GRIM_DEFAULT_DIR="$HOME/pics/screenshots"
 export BEMENU_OPTS='-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5'
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="foot"
 export BROWSER="firefox"
 export TEXLIVE="/usr/share"
 
