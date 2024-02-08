@@ -17,4 +17,4 @@ My own scripts, some config files in `.config` and `.local/external` use these c
 * `.fehbg`: Sets wallpaper using feh, nowadays I use swaybg.
 * `inst.txt`: I use these pieces of software nowadays.
 * `guide.md`: A guide to build up from a base install of void linux, written for myself.
-* `lez-rainbow3.png`: Just a wallpaper.
+* `lez-rainbow3.png`: Just a wallpaper from the show TBLS.
