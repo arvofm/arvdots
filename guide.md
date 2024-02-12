@@ -157,7 +157,7 @@ sudo xbps-install -R hostdir/binpkgs hyprland
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
-I also use Codeium for NeoVim, so apply the account token.
+- I also use Codeium for NeoVim, so apply the account token.
 
 - I use a fish shell plugin called [z](https://github.com/jethrokuan/z?tab=readme-ov-file), along with the plugin manager [fisher](https://github.com/jorgebucaran/fisher).
 ```bash
