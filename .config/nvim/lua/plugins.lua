@@ -28,8 +28,8 @@ return packer.startup(
         use 'sainnhe/gruvbox-material'
         use 'EdenEast/nightfox.nvim'
         use ({ 'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*' })
-        use 'rebelot/kanagawa.nvim'
         use { "ellisonleao/gruvbox.nvim" }
+        use 'RRethy/base16-nvim'
 
         -- LSP / language server protocol
         use 'neovim/nvim-lspconfig'
