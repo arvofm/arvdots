@@ -9,8 +9,9 @@ require('keybinds')
 require('settings')
 
 -- colorscheme
--- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa-colorscheme / real-gruvbox / phoenix)
-require('arvosNvim')
+-- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa-colorscheme / real-gruvbox / phoenix / arvosNvim)
+--require('lodestone')
+vim.cmd("colorscheme base16-windows-nt")
 
 -- better syntax highlighting
 require('treesitter')
@@ -41,4 +42,3 @@ require('ultisnips')
 
 -- finally, all my own
 require('commands')
-
