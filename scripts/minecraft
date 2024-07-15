@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "$HOME/.local/external/minecraft/" || exit
+
+gamemoderun prime-run java -jar minecraft.jar
