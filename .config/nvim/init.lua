@@ -5,15 +5,18 @@
 
 -- globals
 require('plugins')
-require('keybinds')
 require('settings')
+require('keybinds')
 
 -- colorscheme
 -- (gruvbox-material / nightfox-duskfox / rosepine / kanagawa-colorscheme / real-gruvbox / phoenix / arvosNvim)
---require('lodestone')
+-- require('arvosNvim')
 vim.cmd("colorscheme base16-windows-nt")
 
--- better syntax highlighting
+-- AI completion
+require('supermaven')
+
+-- treesitter
 require('treesitter')
 
 -- bottom status line
