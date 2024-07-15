@@ -57,7 +57,7 @@
     icon_position = left
     min_icon_size = 0
     max_icon_size = 32
-    icon_path = "/home/arvo/.config/dunst/icons"
+    icon_path = "./icons"
 
     ### History ###
 
@@ -103,15 +103,13 @@
 
 [urgency_normal]
     background = "#11111C"
-    foreground = "#FFDC42"
+    foreground = "#CDD6F4"
     timeout = 7
     default_icon = "dialog-warning"
 
 [urgency_critical]
     background = "#11111C"
-    foreground = "#FFDC42"
+    foreground = "#CDD6F4"
     frame_color = "#ca2821"
     timeout = 10
     default_icon = "dialog-error"
-
-
