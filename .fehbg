@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/arvo/pics/wps/pic.png' 
+feh --no-fehbg --bg-fill 'wallpaper.png' 
