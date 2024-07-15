@@ -1,7 +1,0 @@
-#!/bin/bash
-
-cd "$HOME/.local/external/tetrio" || exit
-
-prime-run ./tetrio-desktop
-
-exit
