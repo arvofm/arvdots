@@ -3,8 +3,8 @@
 # SETTING ENVIRONMENT VARIABLES {{{{{{
 
 # Hyprland Environment Variables
-export HYPRLAND_LOG_WLR=1
-export HYPRLAND_NO_RT=1
+# export HYPRLAND_LOG_WLR=1
+# export HYPRLAND_NO_RT=1
 
 # Toolkit Backend Variables
 export GDK_BACKEND="wayland,x11"
@@ -14,9 +14,9 @@ export CLUTTER_BACKEND="wayland"
 export MOZ_ENABLE_WAYLAND=1
 
 # XDG Specifications
-export XDG_CURRENT_DESKTOP="Hyprland"
+export XDG_CURRENT_DESKTOP="Sway"
 export XDG_SESSION_TYPE="wayland"
-export XDG_SESSION_DESKTOP="Hyprland"
+export XDG_SESSION_DESKTOP="Sway"
 export XDG_DATA_DIRS="usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DOWNLOAD_DIR="$HOME/downloads"
@@ -41,8 +41,9 @@ export __GLX_VENDOR_LIBRARY_NAME="nvidia"
 # Misc
 export WLR_NO_HARDWARE_CURSORS=1
 export XCURSOR_SIZE=12
+export XKB_DEFAULT_LAYOUT="us"
 export GRIM_DEFAULT_DIR="$HOME/pics/screenshots"
-export BEMENU_OPTS='-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5'
+export BEMENU_OPTS="-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5"
 export EDITOR="nvim"
 export TERMINAL="foot"
 export BROWSER="firefox"
@@ -59,5 +60,8 @@ export PATH="${PATH}:${SCRIPTS_DIR}:${JAVA_BIN}"
 
 # }}}}}}
 
-#Hyprland
-dbus-launch --sh-syntax --exit-with-session Hyprland
+# QTile
+qtile start -b wayland
+
+# Hyprland
+# dbus-launch --sh-syntax --exit-with-session Hyprland
