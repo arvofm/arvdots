@@ -6,7 +6,7 @@
 
 # List and select from running flatpak apps
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    APP=$(tail -n +1 <<< "$(flatpak ps --columns=application)" | awk '!seen[$0]++' | bemenu -i -w -c -l 8 --fixed-height -p "Kill Flatpak" -B 1 -R 5 -H 30 -W 0.3)
+    APP=$(tail -n +1 <<< "$(flatpak ps --columns=application)" | awk '!seen[$0]++' | fuzzel --placeholder="Kill flatpak" -i -l 20 -d -w 60 -f "Source Code Pro:size=8" --line-height=24px)
 
 elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
     APP=$(tail -n +1 <<< "$(flatpak ps --columns=application)" | awk '!seen[$0]++' | dmenu -i -c -l 30 -p "Kill Flatpak" -cw 500)
