@@ -30,7 +30,8 @@
 
 import os
 import subprocess
-from libqtile import bar, layout, qtile, widget, hook
+#from libqtile import bar, layout, qtile, widget, hook
+from libqtile import bar, layout, qtile, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.layout.max import Max
@@ -40,75 +41,6 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 # pyright: reportMissingImports=false
 from colorschemes import colors         # I will uninstall all my LSPs
-
-
-# VARIABLES
-
-mod = "mod4"
-wallpaper = "~/pics/wps/coffee-cup.jpg"
-wallpaper_mode = "fill"
-myFont = "FiraCode Nerd Font"
-myTerm = "foot"
-myBrowser = "firefox"
-myVolControl = "pavucontrol"
-myFileManager = "thunar"
-myScreenLockTool = "swaylock"
-myMenu = 'bemenu-run -i -w -c -l 30 --fixed-height -p "Run" -B 1 -R 10 -H 20 -W 0.5'
-myCustomScripts = {
-    "toggle-power":"awayfromscreen",            "play-clip":"clipmpv",
-    "open-in-mpv":"pastetompv",                 "browse-web":"surfonweb",
-    "run-flatpak":"runflatpak",                 "kill-flatpak":"killflatpak",
-    "volume-inc":"volume -inc 5",               "volume-dec":"volume -dec 5",
-    "volume-toggle":"volume -toggle",           "mic-toggle":"volume -mictoggle",
-    "brightness-inc":"brightnessctl set 5%+",   "brightness-dec":"brightnessctl set 5%-",
-    "screenshot":'grim -g "$(slurp -d)" - | wl-copy -t image/png && dunstify -a "grim" -u low -r 9927 "Screenshot taken"'
-}
-
-## Colors
-colorscheme = colors["Gruvbox"]     # one of the lists in colorschemes.py
-_colors = []
-if isinstance(colorscheme[0], list):
-    _colors = {
-        "bg":           colorscheme[0][0],
-        "bg_dark":      colorscheme[0][1],
-        "fg":           colorscheme[1][0],
-        "fg_dark":      colorscheme[1][1],
-        "grey":         colorscheme[2][0],
-        "grey_dark":    colorscheme[2][1],
-        "red":          colorscheme[3][0],
-        "red_dark":     colorscheme[3][1],
-        "green":        colorscheme[4][0],
-        "green_dark":   colorscheme[4][1],
-        "yellow":       colorscheme[5][0],
-        "yellow_dark":  colorscheme[5][1],
-        "blue":         colorscheme[6][0],
-        "blue_dark":    colorscheme[6][1],
-        "purple":       colorscheme[7][0],
-        "purple_dark":  colorscheme[7][1],
-        "teal":         colorscheme[8][0],
-        "teal_dark":    colorscheme[8][1],
-    }
-elif isinstance(colorscheme[0], str):
-    _colors = {
-        "bg":           colorscheme[0],
-        "fg":           colorscheme[1],
-        "grey":         colorscheme[2],
-        "red":          colorscheme[3],
-        "green":        colorscheme[4],
-        "yellow":       colorscheme[5],
-        "blue":         colorscheme[6],
-        "purple":       colorscheme[7],
-        "teal":         colorscheme[8],
-        "bg_dark":      colorscheme[0],
-        "fg_dark":      colorscheme[1],
-        "grey_dark":    colorscheme[2],
-        "red_dark":     colorscheme[3],
-        "green_dark":   colorscheme[4],
-        "yellow_dark":  colorscheme[5],
-        "blue_dark":    colorscheme[6],
-        "purple_dark":  colorscheme[7],
-        "teal_dark":    colorscheme[8],
-    }
 
 
 # FUNCTIONS
@@ -125,6 +57,82 @@ def window_to_next_group(window):
     index = (index + 1) % len(window.qtile.groups)
     window.cmd_togroup(window.qtile.groups[index].name)
 
+def setColorScheme(colorscheme) -> dict[str, str]:
+    if isinstance(colorscheme[0], list):
+        __colors: dict[str, str] = {
+            "bg":           colorscheme[0][0],
+            "bg_dark":      colorscheme[0][1],
+            "fg":           colorscheme[1][0],
+            "fg_dark":      colorscheme[1][1],
+            "grey":         colorscheme[2][0],
+            "grey_dark":    colorscheme[2][1],
+            "red":          colorscheme[3][0],
+            "red_dark":     colorscheme[3][1],
+            "green":        colorscheme[4][0],
+            "green_dark":   colorscheme[4][1],
+            "yellow":       colorscheme[5][0],
+            "yellow_dark":  colorscheme[5][1],
+            "blue":         colorscheme[6][0],
+            "blue_dark":    colorscheme[6][1],
+            "purple":       colorscheme[7][0],
+            "purple_dark":  colorscheme[7][1],
+            "teal":         colorscheme[8][0],
+            "teal_dark":    colorscheme[8][1],
+        }
+    elif isinstance(colorscheme[0], str):
+        __colors: dict[str, str] = {
+            "bg":           colorscheme[0],
+            "fg":           colorscheme[1],
+            "grey":         colorscheme[2],
+            "red":          colorscheme[3],
+            "green":        colorscheme[4],
+            "yellow":       colorscheme[5],
+            "blue":         colorscheme[6],
+            "purple":       colorscheme[7],
+            "teal":         colorscheme[8],
+            "bg_dark":      colorscheme[0],
+            "fg_dark":      colorscheme[1],
+            "grey_dark":    colorscheme[2],
+            "red_dark":     colorscheme[3],
+            "green_dark":   colorscheme[4],
+            "yellow_dark":  colorscheme[5],
+            "blue_dark":    colorscheme[6],
+            "purple_dark":  colorscheme[7],
+            "teal_dark":    colorscheme[8],
+        }
+    else:
+        raise ValueError("Invalid colorscheme format. Expected list of lists or list of strings.")
+
+    return __colors
+
+
+# VARIABLES
+myTerm               = "st"
+myScreenLocker       = "slock"
+myMenu               = 'dmenu_run -i -c -l 30 -p "Run" -cw 300'
+myScreenLockTool     = "xautolock -secure -time 25 -locker " + myScreenLocker
+if qtile.core.name == "wayland":
+    myTerm           = "foot"
+    myScreenLockTool = "swaylock"
+    myMenu           = 'bemenu-run -i -w -c -l 30 --fixed-height -p "Run" -B 1 -R 10 -H 20 -W 0.5'
+mod                  = "mod4"
+wallpaper            = "~/pics/wps/fallen_leaves_by_refiend_dgeyh65.jpg"
+wallpaper_mode       = "fill"
+myFont               = "Source Code Pro"
+myBrowser            = "qutebrowser"
+myVolControl         = "pavucontrol"
+myFileManager        = "thunar"
+myCustomScripts      = {
+    "toggle-power":"wlogout",            "play-clip":"clipmpv",
+    "open-in-mpv":"pastetompv",                 "browse-web":"qutebrowser",
+    "run-flatpak":"runflatpak",                 "kill-flatpak":"killflatpak",
+    "volume-inc":"volume -inc 5",               "volume-dec":"volume -dec 5",
+    "volume-toggle":"volume -toggle",           "mic-toggle":"volume -mictoggle",
+    "brightness-inc":"brightnessctl set 5%+",   "brightness-dec":"brightnessctl set 5%-",
+    "screenshot":'grim -g "$(slurp -d)" - | wl-copy -t image/png && dunstify -a "grim" -u low -r 9927 "Screenshot taken"'
+}
+_colors: dict[str, str] = setColorScheme(colors["Gruvbox"])     # one of the lists in colorschemes.py
+
 
 # KEYS
 
@@ -137,7 +145,7 @@ keys = [
     Key([mod], "Return", lazy.layout.swap_main(), desc="Master focused window"),
     Key([mod], "Right", lazy.screen.next_group(), desc="Move to the group on the right"),
     Key([mod], "Left", lazy.screen.prev_group(), desc="Move to the group on the left"),
-    Key([mod], "Tab", lazy.screen.toggle_group(), desc="Toggle between layouts"),
+    Key([mod], "Tab", lazy.screen.toggle_group()),
     Key([mod, "shift"], "v", lazy.window.toggle_floating(), desc="Put the focused window to/from floating mode"),
     Key([mod, "mod1"], "Return", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod, "mod1"], "Down", lazy.window.toggle_minimize(), desc="Toggle fullscreen on the focused window"),
@@ -156,8 +164,7 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("mpc next")),
     Key([], "XF86AudioPlay", lazy.spawn("mpc toggle")),
     Key([], "XF86AudioStop", lazy.spawn("mpc stop")),
-    Key([], "3270_PrintScreen", lazy.spawn(myCustomScripts["screenshot"])),
-
+    Key([], "Print", lazy.spawn(myCustomScripts["screenshot"])),
 
     ## Apps
     Key([mod], "t", lazy.spawn(myTerm), desc="Launch terminal"),
@@ -188,10 +195,21 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
+for vt in range(1, 8):
+    keys.append(
+        Key(
+            ["control", "mod1"],
+            f"f{vt}",
+            lazy.core.change_vt(vt).when(func=lambda: qtile.core.name == "wayland"),
+            desc=f"Switch to VT{vt}",
+        )
+    )
+
+
 
 # GROUPS
 
-groups = []
+groups: list[Group] = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 group_labels = [">_", "www", "{*}", "|#|", "^_^", "|>", "md", "*?*", "69"]
 
@@ -201,11 +219,11 @@ for i in range(len(group_names)):
         case 1:
             matches = [Match(wm_class=myBrowser), Match(wm_class="Firefox"), Match(wm_class="qutebrowser"), Match(wm_class="chromium")]
         case 2:
-            matches = [Match(title="*NVIM")]
+            matches = [Match(title="*NVIM"), Match(wm_class='emacs')]
         case 3:
             matches = [Match(wm_class="org.pwmt.zathura"), Match(wm_class="libreoffice")]
         case 4:
-            matches = [Match(wm_class="discord"), Match(wm_class="whatsapp-for-linux")]
+            matches = [Match(wm_class="discord"), Match(title="ZapZap")]
         case 5:
             matches = [Match(wm_class="mpv"), Match(title="ncmpcpp"), Match(wm_class="FreeTube")]
         case 6:
@@ -241,6 +259,7 @@ for i in groups:
             ),
         ]
     )
+
 
 # LAYOUTS
 
@@ -468,7 +487,7 @@ follow_mouse_focus = True
 reconfigure_screens = True
 wl_input_rules = {
     "type:touchpad": InputConfig(dwt=True, tap=True),
-    "type:keyboard": InputConfig(kb_layout="us", kb_repeat_delay=250, kb_repeat_rate=30)    # seems like numpad hasnt been implemented to qtile yet
+    "type:keyboard": InputConfig(kb_layout="us", kb_repeat_delay=250, kb_repeat_rate=30, kb_options="ctrl:nocaps")
 }
 wl_xcursor_theme = None
 wl_xcursor_size = 24
