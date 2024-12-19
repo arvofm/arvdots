@@ -1,0 +1,58 @@
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+	background-color: rgba(12, 12, 12, 0.5);
+	font-family: Ubuntu Nerd Font;
+	font-size: 24px;
+    transition:			all 1s ease-in;
+}
+
+button {
+    margin:			15px;
+    border-radius:		10px;
+    border-color:		#191919;
+    text-decoration-color:	#F2F2F2;
+    color:			#F2F2F2;
+    background-color:		#181818;
+    border-style:		solid;
+    border-width:		3px;
+    background-repeat:		no-repeat;
+    background-position:	center;
+    background-size:		25%;
+    transition:			all 0.2s ease-in;
+}
+
+button:focus, button:active, button:hover {
+	background-color: #262626;
+	color: transparent;
+	outline-style: none;
+	background-size: 50%;
+	transition: all 0.2s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.3s ease-in;
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+}
