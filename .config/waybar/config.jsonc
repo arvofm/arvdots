@@ -9,11 +9,11 @@
     "gtk-layer-shell": true,
 
 	"modules-left": ["custom/padd","custom/l_end","clock","custom/r_end","custom/l_end","mpd","custom/r_end","custom/padd"],
-	"modules-center": ["custom/padd","custom/l_end","hyprland/workspaces","custom/void","custom/r_end","custom/padd"],
+	"modules-center": ["custom/padd","custom/l_end","sway/workspaces","custom/void","custom/r_end","custom/padd"],
 	"modules-right": ["custom/padd","custom/l_end","tray","pulseaudio","pulseaudio#microphone","backlight","battery","memory","network","custom/r_end","custom/padd"],
 
     "memory": {
-        "interval": 30,
+        "interval": 10,
         "format": " {used:0.1f}G/{total:0.1f}G  "
     },
 
@@ -21,7 +21,7 @@
         "format": "{stateIcon} {artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
         "format-disconnected": "Disconnected ",
         "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "interval": 10,
+        "interval": 2,
         "consume-icons": {
             "on": " "
         },
@@ -43,21 +43,20 @@
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
 
-    "hyprland/workspaces": {
-	    "format": "{icon}",
-        "sort-by": "number",
-        "format-icons": {
-            "1": ">_",
-            "2": "www",
-            "3": "{*};",
-            "4": "|#|",
-            "5": "^_^",
-            "6": "|>",
-            "7": "md",
-            "8": "*?*",
-            "9": "69",
-            "default": ""
-        }
+    "sway/workspaces": {
+    		       "all-outputs": true,
+		       "format": "{name}: {icon}",
+		       "format-icons": {
+                       		       "1": ">_",
+                     		       "2": "www",
+                     		       "3": "{*}",
+                     		       "4": "|#|",
+                     		       "5": "^_^",
+				       "6": "|>",
+				       "7": "*?*",
+				       "8": "31",
+				       "9": "69"
+			}
     },
 
     "clock": {
@@ -106,8 +105,8 @@
         "device": "intel_backlight",
         "format": "  {icon} {percent}% ",
         "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
         "min-length": 6
     },
 
