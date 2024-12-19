@@ -1,22 +1,15 @@
 #!/bin/sh
 
-# SETTING ENVIRONMENT VARIABLES {{{{{{
-
-# Hyprland Environment Variables
-# export HYPRLAND_LOG_WLR=1
-# export HYPRLAND_NO_RT=1
+# SETTING ENVIRONMENT VARIABLES
 
 # Toolkit Backend Variables
-export GDK_BACKEND="wayland,x11"
-export QT_QPA_PLATFORM="wayland;xcb"
 export DL_VIDEODRIVER="wayland"
 export CLUTTER_BACKEND="wayland"
 export MOZ_ENABLE_WAYLAND=1
 
 # XDG Specifications
-export XDG_CURRENT_DESKTOP="Sway"
+#export XDG_CURRENT_DESKTOP="Sway"
 export XDG_SESSION_TYPE="wayland"
-export XDG_SESSION_DESKTOP="Sway"
 export XDG_DATA_DIRS="usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DOWNLOAD_DIR="$HOME/downloads"
@@ -26,12 +19,9 @@ export XDG_PICTURES_DIR="$HOME/pics"
 
 # QT Variables
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="wayland-egl"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME="qt5ct"
-
-# Tell Hyprland Which GPU to Use
-export WLR_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
 
 # Because I Use NVIDIA
 export LIBVA_DRIVER_NAME="nvidia"
@@ -42,11 +32,11 @@ export __GLX_VENDOR_LIBRARY_NAME="nvidia"
 export WLR_NO_HARDWARE_CURSORS=1
 export XCURSOR_SIZE=12
 export XKB_DEFAULT_LAYOUT="us"
-export GRIM_DEFAULT_DIR="$HOME/pics/screenshots"
 export BEMENU_OPTS="-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5"
-export EDITOR="nvim"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export EDITOR="emacs"
 export TERMINAL="foot"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export TEXLIVE="/usr/share"
 
 # You Know...
@@ -58,10 +48,5 @@ export JAVA_HOME="/usr/lib/jvm/default-jre"
 export JAVA_BIN="/usr/lib/jvm/default-jre/bin"
 export PATH="${PATH}:${SCRIPTS_DIR}:${JAVA_BIN}"
 
-# }}}}}}
-
-# QTile
-qtile start -b wayland
-
-# Hyprland
-# dbus-launch --sh-syntax --exit-with-session Hyprland
+# Run Sway
+exec dbus-run-session sway
