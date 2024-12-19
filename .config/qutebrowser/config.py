@@ -1,14 +1,21 @@
-# Refer to qute://help/settings.html
+# Refer toqute://help/settings.html
 
 ## Session Behavior
 c.auto_save.interval = 30000
-c.auto_save.session = True
-c.changelog_after_upgrade = 'never'
+c.auto_save.session = False
+c.changelog_after_upgrade = 'major'
 c.confirm_quit = ['downloads']   # Show a confirmation if downloads are running
+
+## Completion
+c.completion.cmd_history_max_items = 20
+c.completion.web_history.max_items = 20
+c.completion.open_categories = ['searchengines', 'bookmarks']   # I wont be using use quickmarks / c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
+c.completion.scrollbar.width = 8
+c.completion.shrink = False
 
 ## Content
 c.content.autoplay = False
-c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt','https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/quick-fixes.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt']
+# c.content.blocking.adblock.lists = ['https://easylist.to/easylist/easylist.txt', 'https://easylist.to/easylist/easyprivacy.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt','https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/quick-fixes.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt', 'https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt']
 c.content.blocking.enabled = True
 c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = 'both'
@@ -22,25 +29,18 @@ c.content.media.audio_capture = False
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
 c.content.notifications.enabled = False
-c.content.proxy = 'none'
+c.content.pdfjs = False
+c.content.prefers_reduced_motion = True
 c.content.webgl = True
-c.content.xss_auditing = True
-
-## Completion
-c.completion.cmd_history_max_items = 0
-c.completion.web_history.max_items = 0
-c.completion.open_categories = ['searchengines', 'bookmarks']   # I wont be using use quickmarks / c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
-c.completion.scrollbar.width = 8
-c.completion.shrink = False
 
 ## Downloads
 c.downloads.position = 'bottom'
 c.downloads.remove_finished = 10000
 
 ## Fonts
-c.fonts.default_family = "Ubuntu Nerd Font";
-c.fonts.web.family.sans_serif = "Ubuntu Nerd Font"
-c.fonts.web.family.serif = "Ubuntu Nerd Font"
+c.fonts.default_family = "Source Code Pro";
+c.fonts.web.family.sans_serif = "Source Code Pro"
+c.fonts.web.family.serif = "Source Code Pro"
 
 ## Input
 c.input.insert_mode.auto_load = True
@@ -50,13 +50,12 @@ c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.darkmode.policy.images = 'never'
 c.colors.webpage.preferred_color_scheme = 'dark'
 
-
 ## Misc
 c.messages.timeout = 5000
 c.qt.chromium.low_end_device_mode = 'never'
-c.qt.workarounds.remove_service_workers = True
-c.scrolling.smooth = False
+c.scrolling.smooth = True
 c.tabs.title.alignment = 'center'
+c.tabs.new_position.unrelated = 'next'
 c.window.hide_decoration = True
 c.zoom.default = '90%'
 
@@ -64,11 +63,11 @@ c.zoom.default = '90%'
 c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'dm':'config-cycle colors.webpage.darkmode.enabled'}
 
 ## Theme
-config.source('./city.py')
+config.source('./themes/vesper.py')
 
-# c.url.start_pages = ['https://start.duckduckgo.com']
-# c.url.default_page = 'https://start.duckduckgo.com/'
+## URL related
+c.url.start_pages = ['http://localhost/']
+c.url.default_page = 'http://localhost/'
 # c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 config.load_autoconfig(False)
-
