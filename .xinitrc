@@ -31,7 +31,19 @@ fi
 numlockx on
 xset r rate 195 23
 xset b off
-setxkbmap -layout tr
+setxkbmap -layout us
+
+
+# environment variables
+export GDK_BACKEND="x11"
+export DL_VIDEODRIVER="x11"
+export CLUTTER_BACKEND="x11"
+export XDG_SESSION_TYPE="x11"
+
+export LIBVA_DRIVER_NAME="nvidia"
+export __GL_SYNC_TO_VBLANK=1
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+
 export SCRIPTS_DIR="$HOME/.scripts"
 export JAVA_HOME="/usr/lib/jvm/default-jre"
 export JAVA_BIN="/usr/lib/jvm/default-jre/bin"
@@ -44,15 +56,13 @@ export XDG_DOCUMENTS_DIR="$HOME/docs"
 export XDG_MUSIC_DIR="$HOME/music"
 export XDG_PICTURES_DIR="$HOME/pics"
 
-
-
 # initials
-slstatus &
-sh "$HOME/.fehbg"
-batsignal -w 20 -c 10 -d 5 -W 'Battery Low' -C 'Battery Critical' -F 'Battery Charged' -M dunstify -b &
-dbus-run-session pulseaudio &
-mpd $HOME/.config/mpd/mpd.conf &
-sxhkd &
+#slstatus &
+#sh "$HOME/.fehbg"
+#sxhkd &
 picom &
-xautolock -secure -time 25 -locker slock &
-exec dwm
+#xautolock -secure -time 25 -locker slock &
+qtile start -b x11
+#exec dwm
+
+
