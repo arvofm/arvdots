@@ -1,0 +1,116 @@
+#!/bin/sh
+
+# See the bottom of the file
+ENABLE_AUTOSTART=true
+riverctl spawn 'swaybg -m fill -i "$HOME/pics/wps/vintage-butterflies.png"'
+
+# MAPPINGS
+## WM Essentials
+riverctl map normal Super C close
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view previous
+riverctl map normal Super Return zoom
+riverctl map normal Super+Alt Space toggle-float
+riverctl map normal Super+Alt Return toggle-fullscreen
+riverctl map-pointer normal Super BTN_LEFT move-view
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+riverctl map normal Super+Shift+Control Q exit
+### Tag Management
+for i in $(seq 1 9)
+do
+    tags=$((1 << ($i - 1)))
+    # Super+[1-9] to focus tag [0-8]
+    riverctl map normal Super $i set-focused-tags $tags
+    # Super+Shift+[1-9] to tag focused view with tag [0-8]
+    riverctl map normal Super+Shift $i set-view-tags $tags
+    # Super+Control+[1-9] to toggle focus of tag [0-8]
+    riverctl map normal Super+Control $i toggle-focused-tags $tags
+    # Super+Shift+Control+[1-9] to toggle tag [0-8] of focused view
+    riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+riverctl map normal Super Tab focus-previous-tags
+## Apps
+riverctl map normal Super T spawn "foot"
+riverctl map normal Super H spawn "foot --title=htop -e htop"
+riverctl map normal Super M spawn "foot --title=ncmpcpp -e ncmpcpp"
+riverctl map normal Super F spawn "thunar"
+riverctl map normal Super L spawn "swaylock"
+riverctl map normal Super P spawn "fuzzel"
+### with Scripts
+riverctl map normal Super B spawn "qutebrowser"
+riverctl map normal Super X spawn "wlogout"
+riverctl map normal Super V spawn "clipmpv"
+riverctl map normal Super+Shift O spawn "killflatpak"
+## Multimedia
+for mode in normal locked
+do
+    riverctl map $mode None XF86AudioRaiseVolume  spawn "volume -inc 5"
+    riverctl map $mode None XF86AudioLowerVolume  spawn "volume -dec 5"
+    riverctl map $mode None XF86AudioMute         spawn "volume -toggle"
+    riverctl map $mode None XF86AudioMicMute      spawn "volume -mictoggle"
+    riverctl map $mode None XF86Tools spawn "playerctl play-pause"
+    riverctl map $mode None XF86AudioPlay  spawn "mpc toggle"
+    riverctl map $mode None XF86AudioPrev  spawn "mpc prev"
+    riverctl map $mode None XF86AudioNext  spawn "mpc next"
+    riverctl map $mode None XF86AudioStop  spawn "mpc stop"
+    riverctl map $mode None XF86MonBrightnessUp   spawn "brightnessctl set +5%"
+    riverctl map $mode None XF86MonBrightnessDown spawn "brightnessctl set 5%-"
+    riverctl map $mode None Print spawn 'grim -g "$(slurp -d)" - | wl-copy -t image/png && dunstify -a "grim" -u low -r 9927 "Screenshot taken"'
+done
+
+# RULES
+# Make all views with an app-id that starts with "float" and title "foo" start floating.
+riverctl rule-add ssd
+riverctl rule-add -title "*Firefox*" tags $((1 << 1))
+riverctl rule-add -title "*LibreWolf*" tags $((1 << 1))
+riverctl rule-add -title "*qutebrowser*" tags $((1 << 1))
+riverctl rule-add -title "*Emacs*" tags $((1 << 2))
+riverctl rule-add -app-id "*zathura*" tags $((1 << 3))
+riverctl rule-add -app-id "*discord*" tags $((1 << 4))
+riverctl rule-add -title "*ZapZap*" tags $((1 << 4))
+riverctl rule-add -app-id "mpv" tags $((1 << 5))
+riverctl rule-add -title "*FreeTube*" tags $((1 << 5))
+riverctl rule-add -title "*FreeTube*" tags $((1 << 5))
+riverctl rule-add -title "*ncmpcpp*" tags $((1 << 5))
+riverctl rule-add -app-id "*obsidian*" tags $((1 << 6))
+riverctl rule-add -title "*htop*" tags $((1 << 8))
+
+# CONF
+riverctl default-attach-mode top
+riverctl background-color 0x181818
+riverctl border-width 1
+riverctl border-color-focused 0xf5c2e733
+riverctl border-color-unfocused 0x1d2021
+riverctl focus-follows-cursor normal
+riverctl hide-cursor timeout 10000
+riverctl hide-cursor when-typing enabled
+riverctl set-repeat 30 250
+riverctl keyboard-layout -options "ctrl:nocaps" us
+
+riverctl default-layout rivertile
+rivertile -view-padding 5 -outer-padding 0 -main-ratio 0.55 &
+
+# AUTOSTART
+if [ "$ENABLE_AUTOSTART" ]; then
+    riverctl spawn 'dunst &'
+    riverctl spawn 'dbus-run-session pulseaudio --start --log-level=error'
+    riverctl spawn 'batsignal -w 20 -c 10 -d 5 -W "Battery Low" -C "Battery Critical" -F "Battery Charged" -M dunstify -b &'
+    riverctl spawn 'mpd "$HOME"/.config/mpd/mpd.conf &'
+    riverctl spawn 'waybar'
+fi
+
+# Comments
+## I should be able to get the current tag by using riverctl, then tag movements via Left - Right keys could be possible
+## I use a laptop so there is no need for output (monitor/screen) settings
+
+#### Testing Purposes Only ####
+# Declare a passthrough mode. This mode has only a single mapping to return to
+# normal mode. This makes it useful for testing a nested wayland compositor
+riverctl declare-mode passthrough
+# Super+F11 to enter passthrough mode
+riverctl map normal Super F11 enter-mode passthrough
+# Super+F11 to return to normal mode
+riverctl map passthrough Super F11 enter-mode normal
+
+
