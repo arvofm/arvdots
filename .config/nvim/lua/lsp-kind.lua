@@ -1,0 +1,33 @@
+require('lspkind').setup({
+    mode = 'symbol',
+    preset = 'default',
+
+    symbol_map = {
+        Text = "T",
+        Method = "M",
+        Function = "F",
+        Constructor = "C",
+        Field = "f",
+        Variable = "V",
+        Class = "c",
+        Interface = "I",
+        Module = "m",
+        Property = "P",
+        Unit = "U",
+        Value = "v",
+        Enum = "E",
+        Keyword = "K",
+        Snippet = "S",
+        Color = "C",
+        File = "F",
+        Reference = "R",
+        Folder = "D",
+        EnumMember = "e",
+        Constant = "C",
+        Struct = "s",
+        Event = "E",
+        Operator = "O",
+        TypeParameter = "T",
+        Supermaven = "AI"
+    },
+})
