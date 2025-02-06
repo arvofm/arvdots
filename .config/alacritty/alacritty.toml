@@ -1,0 +1,61 @@
+######################
+## alacritty config
+## by arvo
+######################
+
+# General
+[general]
+live_config_reload = false
+ipc_socket = false
+
+
+[window]
+startup_mode = "Maximized"
+padding = { x = 5, y = 5 }
+decorations = "None"
+blur=true
+opacity = 0.9
+
+
+[scrolling]
+multiplier = 1
+
+
+[font]
+normal = { family = "Source Code Pro", style = "Regular" }
+size = 12
+
+
+[colors]
+
+[colors.primary]
+foreground = "#F2F2F2"
+background = "#000000"
+
+[colors.normal]
+black   = "#000000"
+red     = "#FF0000"
+green   = "#00FF00"
+yellow  = "#FFFF00"
+blue    = "#0000CD"
+magenta = "#A020F0"
+cyan    = "#40E0D0"
+white   = "#FFFFFF"
+
+[colors.bright]
+black    ="#414141"
+red      ="#FFA500"
+green    ="#98FB98"
+yellow   ="#FFFF00"
+blue     ="#0000CD"
+magenta  ="#A020F0"
+cyan     ="#AEEEEE"
+white    ="#FFFFFF"
+
+
+[selection]
+save_to_clipboard = true
+
+
+[mouse]
+hide_when_typing = true

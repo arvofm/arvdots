@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#
+# From a directory filled with videos and songs, select one and play
+# NOTE: Since I just download them by yt-dl, it appends a f*ckin [xxxx] to the file name; to not get bothered with renaming
+# everything I download using yt-dl, this script detects the [xxxx] in filename and acts like there is one. If you do not
+# have such issues, you should change FILE_HAVE_FICKEN_BRACKETS to false, and all should be done.
+#
+
+PLAYLIST_DIR="$HOME/pics/while-study"
+FILES_HAVE_FICKEN_BRACKETS=true
+
+# Select from directory
+SELECT=$(find "$PLAYLIST_DIR" -type f \( -name "*.webm" -o -name "*.mkv" -o -name "*.mp3" -o -name "*.mp4" \))
+
+# Function to trim pathway string
+MakeNameOnly() {
+    local line="$1"
+    modified=${line##*/}
+    if [ $FILES_HAVE_FICKEN_BRACKETS ]; then
+        modified=${modified%[*}
+    else
+        modified=${modified%.*}
+    fi
+    echo "$modified"
+}
+
+FILES_ONLY=""
+
+# Process each line
+while IFS= read -r line; do
+    modified_line=$(MakeNameOnly "$line")
+    # append the modified lines
+    FILES_ONLY="${FILES_ONLY}${modified_line}"$'\n'
+done <<< "$SELECT"
+
+# Select from the files, depending on wayland or X11
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    # SELECT=$(echo "$FILES_ONLY" | bemenu -i -w -c -l 30 --fixed-height -p "Playlists:" -B 1 -R 10 -H 22 -W 0.5)
+    SELECT=$(echo "$FILES_ONLY" | fuzzel --placeholder="while you study" -i -l 25 -d -w 60 -f "Source Code Pro:size=8" --line-height=24px)
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    SELECT=$(echo "$FILES_ONLY" | dmenu -i -c -l 30 -p "Playlists" -cw 300)
+else
+    notify-send -a "playlistopen" -u critical -t 5000 -i "audio-headphones-symbolic" -r 5666 "XDG_SESSION_TYPE not set, not sure what to do."
+    exit 1
+fi
+
+if [ -n "$SELECT" ]; then
+    # Modify `select` variable to have its full pathname
+    SELECT=$(find "$PLAYLIST_DIR" -type f \( -name "*.webm" -o -name "*.mkv" -o -name "*.mp3" -o -name "*.mp4" \) | grep "$SELECT" )
+    # Trim again
+    VID=$(MakeNameOnly "$SELECT")
+    notify-send -a "playlistopen" -r 5666 -i "audio-headphones-symbolic" "While Study" "You have chosen: \n $VID"
+    # Open file in mpv
+    [ "$XDG_SESSION_TYPE" == "wayland" ] && mpv "$SELECT"
+    [ "$XDG_SESSION_TYPE" == "x11" ] && mpv --no-config "$SELECT"
+else
+    notify-send -a "playlistopen" -r 5666 "While Study" "You haven't chosen anything to listen to."
+fi
+
+exit 0

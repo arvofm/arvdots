@@ -1,0 +1,9 @@
+
+set selection-clipboard clipboard
+set recolor
+set recolor-lightcolor \#181818
+set default-bg \#101219
+set recolor-darkcolor \#d3bd97
+set default-fg \#d9dbef
+set recolor-keephue
+set recolor-reverse-video

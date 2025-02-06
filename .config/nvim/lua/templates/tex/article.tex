@@ -1,0 +1,58 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}      % customize layout
+\usepackage{mathptmx}                           % times roman font
+\usepackage[T1]{fontenc}                        % enhance fonts
+\usepackage[utf8]{inputenc}                     % special characters are usable now
+\usepackage{microtype}                          % provides smooth text appearance and auto hyphenation
+\usepackage{indentfirst}                        % indent after new section
+\usepackage[english]{babel}                     % document language is english
+\usepackage{mathtools}                          % rearranges the equations display geometry
+\usepackage{paralist}                           % compact lists, customizable labels and layout options
+\usepackage{graphicx}                           % include graphicals
+\usepackage{xcolor}                             % now we have colors
+\usepackage[section]{placeins}                  % causes an implicit \FloatBarries to be used at the beginning of each section, so figure dont float into another section
+\usepackage{wrapfig}                            % lets text flow around a figure or a table: environments: wrapfigure, wraptable
+\usepackage{adjustbox}                          % adjust tables
+\usepackage{subfig}                             % create subfigures
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage[font=scriptsize]{caption}           % adjust caption font size
+\usepackage{listings}                           % insert codeblocks
+\usepackage{bookmark}                           % bookmarking
+\usepackage{hyperref}                           % bookmarking
+\usepackage{varioref}                           % introduces the functions \vref and \vpageref, smart \ref and \pageref
+\usepackage{cleveref}                           % introduces the functions \cref, \crefrange, \cpageref, \cpagerefrange
+\hypersetup{pdfauthor={author},
+  pdftitle={title},
+  pdfsubject={subject},
+  pdfkeywords={some,keywords}}
+
+% \usepackage{parskip}                          % do not auto-indent paragraphs
+% \usepackage[singlespacing]{setspace}          % line spacing
+% \usepackage{index} \makeindex                 % indexing
+% \usepackage{array}                            % introduces customizable layout variables
+% \setlength{\extrarowheight}{4pt}              % row height for tables, comes with array package
+% \usepackage{booktabs}                         % provides \toprule[thickness] etc. for tables
+
+% can include figures created from inkscape
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./lib/figures/}{#1.pdf_tex}
+}
+
+
+\begin{document}
+
+    \title{Title}
+    \author{Author}
+    \date{\today}
+    % \maketitle
+
+    Miley Cyrus.
+
+    \clearpage
+    % \printindex
+\end{document}
+

@@ -1,0 +1,91 @@
+# ncmpcpp config, what a name
+
+### Directories ###
+ncmpcpp_directory   = "~/.config/ncmpcpp"
+mpd_music_dir       = "~/music"
+mpd_host            = "localhost"
+mpd_port            = "6600"
+mpd_crossfade_time  = "1"
+
+### Behaviour ###
+message_delay_time               = 1
+lyrics_directory                 = "~/.config/ncmpcpp/lyrics"
+follow_now_playing_lyrics        = "yes"
+connected_message_on_startup     = "yes"
+cyclic_scrolling                 = "yes"
+mouse_support                    = "yes"
+mouse_list_scroll_whole_page     = "yes"
+lines_scrolled                   = "1"
+autocenter_mode                  = "yes"
+centered_cursor                  = "yes"
+ignore_leading_the               = "yes"
+playlist_disable_highlight_delay = 2
+allow_for_physical_item_deletion = "no"
+execute_on_song_change = notify-send -a "musicchange" -r 546112 -i "emblem-music-symbolic" -u low "Now Playing" "$(mpc --format '%title% \nby %artist%' current)"
+locked_screen_width_part         = "50"
+ask_for_locked_screen_width_part = "yes"
+display_bitrate                  = "no"
+startup_screen                   = "playlist"
+
+### Visualizer ###
+visualizer_data_source  = "/tmp/mpd.fifo"
+visualizer_output_name  = "mpd_visualizer"
+visualizer_in_stereo    = "no"
+visualizer_fps          = "60"
+visualizer_look         = "∗▐"
+visualizer_type         = "wave" ## spectrum, wave, wave_filled, ellipse
+visualizer_autoscale    = "no"
+visualizer_color        = "199,200,201,202,166,130,94,58,22"
+visualizer_spectrum_dft_size = 1
+visualizer_spectrum_smooth_look = "yes"
+
+
+### Appearance ###
+playlist_display_mode = "columns"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+colors_enabled        = "yes"
+user_interface        = "classic"
+volume_color          = "white"
+
+### Window ###
+#song_window_title_format = "{%a - }{%t}|{%f}"
+statusbar_visibility     = "yes"
+header_visibility        = "yes"
+titles_visibility        = "yes"
+enable_window_title      = "yes"
+
+### Progress bar ###
+progressbar_look            = "▂▂▂"
+progressbar_color           = "black"
+progressbar_elapsed_color   = "5"
+
+### Alternative UI ###
+alternative_ui_separator_color        = "black"
+alternative_header_first_line_format  = $b$5$/b  $b$8{%t}|{%f}$/b $/b 
+alternative_header_second_line_format = {$b{$2  %a$9}{ - $7  %b$9}{ ($2%y$9)}}|{%D}
+
+### Song list ###
+song_library_format      = {{%a - %t} (%b)}|{%f}
+song_columns_list_format = "(50)[]{t|fr:Title} (0)[magenta]{a}"
+song_list_format = " {%t $R  < $8%a$8}|{%f $R   $8%l$8} $8"
+song_status_format = "$b%t   $6$7[$8      $7]$6 $2   --    $7{$8 %b }|{$8 %t }|{$8 %f }$7 $8"
+song_window_title_format = "Now Playing .."
+
+
+### Colors ###
+statusbar_color = "white"
+main_window_color                   = "default"
+header_window_color                 = "white"
+#current_item_prefix                 = "$(blue)$r"
+#current_item_suffix                 = "$/r$(end)"
+#current_item_inactive_column_prefix = "$(red)"
+#current_item_inactive_column_suffix = "$(red)"
+color1 = "white"
+color2 = "blue"
+
+# UI APPEARANCE
+now_playing_prefix = "$b$2$7 "
+now_playing_suffix = "  $/b$8"
+current_item_prefix = "$b$7$/b$3 "
+current_item_suffix = "  $8"

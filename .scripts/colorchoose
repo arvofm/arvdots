@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+# Pick color from a pixel, then copy the hex to clipboard
+#
+
+if [[ "$XDG_SESSION_TYPE" = "wayland" ]]; then
+    hyprpicker -a
+
+elif [[ "$XDG_SESSION_TYPE" = "x11" ]]; then
+    xcolor -s clipboard
+
+else
+    notify-send -a "colorchoose" -u critical -t 5000 -r 68406 "XDG_SESSION_TYPE not set, not sure what to do."
+    exit 1
+
+fi
+
+exit 0

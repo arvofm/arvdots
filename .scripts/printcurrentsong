@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#
+# Print the current playing song if there is any, in mpd
+#
+
+[ "$(mpc status "%state%")" = "paused" ] && echo " " && exit
+
+SONG=$(mpc current)
+SONG="${SONG#*- }"
+SONG_TIME=$(mpc status "%currenttime%/%totaltime%")
+
+echo " $SONG - $SONG_TIME $1"
+

@@ -1,0 +1,209 @@
+# the neat sway config
+## by arvo
+
+### vars
+set $mod		Mod4
+set $wallpaper		$HOME/pics/wps/inferno.jpg
+set $term		foot
+set $menu		fuzzel
+set $file_manager 	thunar
+#### from scripts
+set $browser		qutebrowser
+set $clip_mpv 		clipmpv
+set $paste_mpv		pastetompv
+set $kill_flatpak 	killflatpak
+#### colors
+set $color_text			#e4e4ef
+set $color_bg			#181818
+set $color_bg_opq		#181818dd
+set $color_active		#96a6c8
+set $color_active_opq		#96a6c8aa
+set $color_inactive		#403745
+set $color_border		#f5c2e755
+set $color_urgent		#f43841
+
+
+### misc
+xwayland enable
+focus_follows_mouse yes
+focus_wrapping no
+
+
+### io
+input "type:keyboard" {
+	xkb_layout us
+	xkb_options ctrl:nocaps
+	xkb_capslock disabled
+	xkb_numlock enabled
+	repeat_delay 250
+	repeat_rate 25
+}
+input "type:touchpad" {
+    dwt enabled
+    natural_scroll disabled
+    tap enabled
+}
+output * {
+    bg $wallpaper fill
+    transform normal
+    allow_tearing yes
+    max_render_time off
+}
+
+
+### swaybar
+bar {
+    position top
+    font Source Code Pro 10
+    strip_workspace_numbers yes
+    wrap_scroll yes
+    workspace_min_width 36
+    tray_padding 10
+
+    status_command while ~/.config/sway/script/status_command.sh; do sleep 0.5; done
+
+    colors {
+        statusline $color_text
+        background $color_bg_opq
+	separator $color_bg
+	focused_workspace	$color_bg_opq $color_active_opq $color_bg
+        inactive_workspace 	$color_bg_opq $color_bg_opq 	$color_active
+	urgent_workspace 	$color_urgent $color_bg_opq 	$color_border
+    }
+}
+
+
+### autostart
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+exec swaync
+exec avizo-service
+exec pipewire
+exec mpd "$HOME"/.config/mpd/mpd.conf
+exec batsignal -w 20 -c 10 -d 5 -W "Battery Low" -C "Battery Critical" -F "Battery Charged"
+
+
+### decorations
+font Source Code Pro 8
+client.focused		$color_border  	   $color_bg_opq     $color_text      $color_bg_opq  $color_bg_opq
+client.unfocused	$color_bg_opq 	   $color_bg_opq     $color_inactive  $color_bg_opq  $color_bg_opq
+client.urgent		$color_urgent	   $color_urgent     $color_text      $color_bg_opq  $color_bg_opq
+smart_gaps off
+smart_borders off
+gaps outer 3
+default_border normal 1
+default_floating_border normal 1
+titlebar_border_thickness 1
+show_marks no
+
+
+### bindings
+#### wm essentials
+floating_modifier $mod normal		# enable resizing windows
+bindsym $mod+Shift+r   			reload
+bindsym $mod+Shift+q 			exit
+bindsym --no-repeat $mod+c		kill
+bindsym --no-repeat $mod+j 		focus next
+bindsym --no-repeat $mod+Down 		focus next
+bindsym --no-repeat $mod+k 		focus prev
+bindsym --no-repeat $mod+Up 		focus prev
+bindsym --no-repeat $mod+Shift+j 	move right
+bindsym --no-repeat $mod+Shift+k 	move left
+bindsym --no-repeat $mod+Mod1+return 	layout toggle split tabbed
+bindsym --no-repeat $mod+Mod1+space 	floating toggle
+bindsym --no-repeat $mod+Mod1+Up 	fullscreen
+bindsym --no-repeat $mod+Shift+Tab 	move scratchpad
+bindsym --no-repeat $mod+Control+Tab 	scratchpad show
+mode "resize" {
+     bindsym Left	resize shrink width 10px
+     bindsym Down 	resize grow   height 10px
+     bindsym Up 	resize shrink height 10px
+     bindsym Right 	resize grow   width 10px
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+##### workspaces
+set $wsp1 '1:>_'
+set $wsp2 '2:www'
+set $wsp3 '3:{*}'
+set $wsp4 '4:|#|'
+set $wsp5 '5:^_^'
+set $wsp6 '6:|> '
+set $wsp7 '7:*?*'
+set $wsp8 '8:31'
+set $wsp9 '9:69'
+bindsym $mod+Left workspace prev_on_output
+bindsym $mod+Right workspace next_on_output
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+1 workspace $wsp1
+bindsym $mod+2 workspace $wsp2
+bindsym $mod+3 workspace $wsp3
+bindsym $mod+4 workspace $wsp4
+bindsym $mod+5 workspace $wsp5
+bindsym $mod+6 workspace $wsp6
+bindsym $mod+7 workspace $wsp7
+bindsym $mod+8 workspace $wsp8
+bindsym $mod+9 workspace $wsp9
+bindsym $mod+Shift+1 move container to workspace $wsp1
+bindsym $mod+Shift+2 move container to workspace $wsp2
+bindsym $mod+Shift+3 move container to workspace $wsp3
+bindsym $mod+Shift+4 move container to workspace $wsp4
+bindsym $mod+Shift+5 move container to workspace $wsp5
+bindsym $mod+Shift+6 move container to workspace $wsp6
+bindsym $mod+Shift+7 move container to workspace $wsp7
+bindsym $mod+Shift+8 move container to workspace $wsp8
+bindsym $mod+Shift+9 move container to workspace $wsp9
+#### apps
+bindsym --no-repeat $mod+t		exec $term
+bindsym --no-repeat $mod+m 		exec $term --title=ncmpcpp ncmpcpp
+bindsym --no-repeat $mod+p 		exec $menu
+bindsym --no-repeat $mod+f 		exec $file_manager
+bindsym --no-repeat $mod+x 		exec wlogout
+bindsym --no-repeat $mod+b 		exec $browser
+bindsym --no-repeat $mod+v		exec $clip_mpv
+bindsym --no-repeat $mod+z		exec $paste_mpv
+bindsym --no-repeat $mod+Shift+o	exec $kill_flatpak
+bindsym --no-repeat $mod+l 		exec swaylock
+bindsym --no-repeat $mod+n		exec swaync-client -t -sw
+#### multimedia
+bindsym --locked XF86AudioRaiseVolume	   exec volume -inc 5
+bindsym --locked XF86AudioLowerVolume 	   exec volume -dec 5
+bindsym --locked XF86AudioMute	      	   exec volume -toggle
+bindsym --locked XF86AudioMicMute     	   exec volume -mictoggle
+bindsym --locked XF86Tools	      	   exec playerctl play-pause
+bindsym --locked XF86AudioPlay	      	   exec mpc toggle
+bindsym --locked XF86AudioPrev 	      	   exec mpc prev
+bindsym --locked XF86AudioNext	      	   exec mpc next
+bindsym --locked XF86AudioStop	      	   exec mpc stop
+bindsym --locked XF86MonBrightnessUp  	   exec brightnessctl set +5%
+bindsym --locked XF86MonBrightnessDown 	   exec brightnessctl set 5%-
+bindsym --locked Print 			   exec grimshot copy area
+
+
+### assignments
+assign [app_id="Firefox"]					$wsp2
+for_window [app_id="Firefox"] workspace				$wsp2
+assign [app_id="zen-alpha"]					$wsp2
+for_window [app_id="zen-alpha"] workspace			$wsp2
+assign [class="Chromium"]					$wsp2
+for_window [class="Chromium"] workspace				$wsp2
+assign [app_id="org.qutebrowser.qutebrowser"]			$wsp2
+for_window [app_id="org.qutebrowser.qutebrowser"] workspace 	$wsp2
+assign [app_id="emacs"] 					$wsp3
+for_window [app_id="emacs"]	workspace			$wsp3
+assign [app_id="org.pwmt.zathura"] 				$wsp4
+for_window [app_id="org.pwmt.zathura"] workspace		$wsp4
+assign [app_id="com.rtosta.zapzap"] 				$wsp5
+for_window [app_id="com.rtosta.zapzap"] workspace		$wsp5
+assign [title="Mumble"]						$wsp5
+for_window [title="Mumble"]] workspace				$wsp5
+assign [app_id="org.signal.Signal"] 				$wsp5
+for_window [app_id="org.signal.Signal"] workspace		$wsp5
+assign [app_id="mpv"] 						$wsp6
+for_window [app_id="mpv"] workspace				$wsp6
+assign [app_id="FreeTube"] 					$wsp6
+for_window [app_id="FreeTube"] workspace			$wsp6
+assign [title="ncmpcpp"] 					$wsp6
+for_window [title="ncmpcpp"] workspace				$wsp6
+

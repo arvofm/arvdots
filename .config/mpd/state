@@ -1,0 +1,35 @@
+sw_volume: 76
+audio_device_state:1:pulse audio
+audio_device_state:1:Visualizer feed
+state: pause
+current: 12
+time: 0.878000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:classical-guitar-classicals/Andy Hackbarth - Tarrega： Capricho árabe [3957244472].mp3
+1:classical-guitar-classicals/Andy Hackbarth - Tarrega： Lágrima [2678723338].mp3
+2:classical-guitar-classicals/Andy Hackbarth - Tarrega： ¡Adelita! [1487936666].mp3
+3:classical-guitar-classicals/Andy Hackbarth - Bach： Suite for Cello Solo No.1 in G, BWV 1007 - 1. Prélude [1432716356].mp3
+4:classical-guitar-classicals/Andy Hackbarth - Bach： Prelude No. 1 in C Major, BWV 846 from the Well-Tempered Clavier [2879897063].mp3
+5:classical-guitar-classicals/Andy Hackbarth - Bach： Cantata No. 147： Jesu, Joy of Man’s Desiring [3552080764].mp3
+6:classical-guitar-classicals/Andy Hackbarth - Bach： Sonata for Solo Violin No. 2 in A minor, BWV 1003 - 3. Andante [1187512426].mp3
+7:classical-guitar-classicals/Andy Hackbarth - Albeniz： Suite española, Op.47 No.5 - Asturias [1271289971].mp3
+8:classical-guitar-classicals/Andy Hackbarth - Everly Brothers： Dream [218188561].mp3
+9:classical-guitar-classicals/Andy Hackbarth - Spanish Traditional： Romanza [3987357982].mp3
+10:classical-guitar-classicals/Andy Hackbarth - Sor： Op 35 No. 17 [2234295188].mp3
+11:classical-guitar-classicals/Andy Hackbarth - Villa-Lobos： 5 Preludes - No. 1 in E minor [2908295544].mp3
+12:classical-guitar-classicals/Andy Hackbarth - Newton： Amazing Grace [1780850765].mp3
+13:classical-guitar-classicals/Andy Hackbarth - Vivaldi： Lute Concerto in D, RV 93 - 1. Allegro giusto [3161073681].mp3
+14:classical-guitar-classicals/Andy Hackbarth - Vivaldi： Lute Concerto in D, RV 93 - 2. Largo [4209065212].mp3
+15:classical-guitar-classicals/Andy Hackbarth - Vivaldi： Lute Concerto in D, RV 93 - 3. Allegro [346226112].mp3
+16:classical-guitar-classicals/Andy Hackbarth - Metallica： Nothing Else Matters [3752246991].mp3
+17:classical-guitar-classicals/Andy Hackbarth - Pachelbel： Canon in D major [289647550].mp3
+18:classical-guitar-classicals/Andy Hackbarth - Traditional English Folk Song： Greensleeves [386013149].mp3
+19:classical-guitar-classicals/Andy Hackbarth - Williams： Classical Gas [1318077753].mp3
+playlist_end

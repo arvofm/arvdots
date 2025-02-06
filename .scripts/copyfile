@@ -1,0 +1,29 @@
+#!/bin/bash
+
+#
+# Copy file content to clipboard, using wl-copy or xclip
+# USAGE: copyfile [FILE]
+#
+
+file_path="$1"
+
+# Check if the file exists
+[ ! -f "$file_path" ] && notify-send -a "copyfile" -u critical -t 3000 -r 10654 "Error: File '$file_path' does not exist." && exit 1
+
+# If wayland, use wl-copy
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    wl-copy < "$file_path"
+
+# If X11, xclip
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    xclip -sel clip < "$file_path"
+
+# If cannot detect, exit
+else
+    notify-send -a "copyfile" -u critical -t 3000 -r 10654 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+
+fi
+
+notify-send -a "copyfile" -t 1500 -r 10654 "File copied to clipboard."
+
+exit 0

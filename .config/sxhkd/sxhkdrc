@@ -1,0 +1,28 @@
+
+##----- System Keys -----##
+
+XF86Audio{RaiseVolume,LowerVolume}
+    volume {-inc, -dec} 5
+
+ctrl + XF86Audio{RaiseVolume,LowerVolume}
+    volume -set 100
+
+XF86AudioMute
+    volume -toggle
+
+XF86AudioMicMute
+    volume -mictoggle
+
+XF86MonBrightness{Up,Down}
+    xbacklight {+,-}0 && dunstify -a "brightness" -u low -r 88875 -i "brightness" "Screen Brightness: `xbacklight -get`%"
+
+Print
+    flameshot gui
+
+XF86Audio{Next,Prev,Play,Stop}
+    mpc {next,prev,toggle,stop}
+
+##----- Script Keys -----##
+
+super + x
+    exec awayfromscreen

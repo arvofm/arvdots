@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#
+# Run a flatpak installed app, from menu
+#
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    APP_TO_RUN=$(tail -n +1 <<< "$(flatpak list --app --columns=application)" | bemenu -i -w -c -l 10 --fixed-height -p "Run Flatpak?" -B 1 -R 5 -H 30 -W 0.3)
+
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    APP_TO_RUN=$(tail -n +1 <<< "$(flatpak list --app --columns=application)" | dmenu -i -c -l 20 -p "Run Flatpak" -cw 500)
+
+else
+    notify-send -a "runflatpak" -u critical -t 5000 -r 44446 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+
+fi
+
+[[ -n "$APP_TO_RUN" ]] && flatpak run "$APP_TO_RUN"

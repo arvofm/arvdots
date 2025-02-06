@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# SETTING ENVIRONMENT VARIABLES
+
+# Toolkit Backend Variables
+export SDL_VIDEODRIVER="wayland,x11"
+export CLUTTER_BACKEND="wayland"
+export ELECTRON_OZONE_PLATFORM_HINT="wayland"
+export MOZ_ENABLE_WAYLAND=1
+
+# XDG Specifications
+export XDG_SESSION_TYPE="wayland"
+export XDG_DATA_DIRS="usr/local/share:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_DOCUMENTS_DIR="$HOME/docs"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pics"
+
+# QT Variables
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QUTE_QT_WRAPPER="PyQt6"
+
+# Because I Use NVIDIA
+export LIBVA_DRIVER_NAME="nvidia"
+export __GL_SYNC_TO_VBLANK=1
+export __GLX_VENDOR_LIBRARY_NAME="nvidia"
+
+# Misc
+export WLR_NO_HARDWARE_CURSORS=1
+export XCURSOR_SIZE=12
+export XKB_DEFAULT_LAYOUT="us"
+export BEMENU_OPTS="-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export EDITOR="emacs"
+export TERMINAL="foot"
+export BROWSER="chromium"
+export TEXLIVE="/usr/share"
+
+# You Know...
+export $(dbus-launch)
+
+# Path
+export SCRIPTS_DIR="$HOME/.scripts"
+export JAVA_HOME="/usr/lib/jvm/default-jre"
+export JAVA_BIN="/usr/lib/jvm/default-jre/bin"
+export PATH="${PATH}:${SCRIPTS_DIR}:${JAVA_BIN}"
+
+# Run Sway
+exec dbus-run-session -- sway

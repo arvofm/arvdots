@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#
+# From running flatpak apps, kill your selection
+#
+
+# List and select from running flatpak apps
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    APP=$(tail -n +1 <<< "$(flatpak ps --columns=application)" | awk '!seen[$0]++' | fuzzel --placeholder="Kill flatpak" -i -l 20 -d -w 60 -f "Source Code Pro:size=8" --line-height=24px)
+
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    APP=$(tail -n +1 <<< "$(flatpak ps --columns=application)" | awk '!seen[$0]++' | dmenu -i -c -l 30 -p "Kill Flatpak" -cw 500)
+
+else
+    notify-send -a "killflatpak" -u critical -t 5000 -r 45654 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+
+fi
+
+# Kill selection
+[[ -n "$APP" ]] && flatpak kill "$APP"
+
+exit 0
+

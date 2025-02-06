@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#
+# Grab a URL from clipboard and play using mpv
+#
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    URL="$(wl-paste -n)"
+
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    URL="$(xclip -selection clipboard -o)"
+
+else
+    notify-send -a "pastetompv" -u critical -t 5000 -r 32222 "XDG_SESSION_TYPE not set, not sure what to do." && exit 1
+
+fi
+
+notify-send -a "pastetompv" -r 32222 "pastetompv" "Playing media from clipboard"
+
+[ -n "${URL}" ] && mpv -fs "${URL}"
+
+exit 0

@@ -1,0 +1,68 @@
+#!/bin/sh
+
+#
+# A neat volume control interface that uses wpctl
+# USAGE:
+# volume [OPTS] [VAL]
+# OPTIONS:
+# -inc <val>        increase volume <val> much
+# -dec <val>        decrease volume <val> much
+# -set <val>        set volume to <val>
+# -mute             mute volume
+# -unmute           unmute volume
+# -toggle           toggle volume: mute/unmute
+# -mictoggle        toggle mic: mute/unmute
+#
+
+update_volume_notification_icon() {
+    CURRENT_VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}')
+    VOLUME_INT=$(echo "$CURRENT_VOLUME * 100 / 1" | bc)
+    if [ "$VOLUME_INT" -gt 100 ]; then
+	ICON_VOLUME="volume_high"
+    elif [ "$VOLUME_INT" -gt 50 ]; then
+	ICON_VOLUME="volume_medium"
+    else
+	ICON_VOLUME="volume_low"
+    fi
+    [ "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]' && echo "Muted" || echo "Unmuted")" = "Muted" ] && ICON_VOLUME="volume_muted"
+}
+
+case "$1" in
+-inc)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2"%+
+    ;;
+-dec)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2"%-
+    ;;
+-mute)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+    ;;
+-unmute)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+    ;;
+-toggle)
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    ;;
+-mictoggle)
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+    if [ "$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q '\[MUTED\]' && echo "Muted" || echo "Unmuted")" = "Muted" ]; then
+	ICON_VOLUME="mic_muted"
+    else
+       	ICON_VOLUME="mic_unmuted"
+    fi
+    avizo-client --image-resource="$ICON_VOLUME" --progress="$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2}')"
+    exit 0
+    ;;
+-set)
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ "$2"%
+    ;;
+*)
+    echo 'Usage: volume -set -inc -dec -mute -unmute -toggle -mictoggle'
+    ;;
+esac
+
+update_volume_notification_icon
+avizo-client --image-resource="$ICON_VOLUME" --progress="$CURRENT_VOLUME"
+

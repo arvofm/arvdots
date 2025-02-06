@@ -1,0 +1,11 @@
+[user]
+	name = arvo
+	email = aliucar@skiff.com
+[core]
+	editor = emacs
+[credential]
+	helper = cache
+[alias]
+	last = log -1 HEAD
+	logtree = log --oneline --decorate --graph --all
+	difflasttwo = diff HEAD~1..HEAD
