@@ -25,7 +25,6 @@
 (setq-default duplicate-line-final-position 1)
 
 ;; fill
-(setq-default fill-column 120)
 (defun unfill-paragraph ()
   "Replace newline chars in current paragraph by single spaces.
 This command does the inverse of fill-paragraph."

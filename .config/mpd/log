@@ -3766,3 +3766,7 @@ Feb 06 02:06 : player: played "classical-guitar-classicals/Andy Hackbarth - Newt
 Feb 06 03:41 : exception: Failed to enable output "pulse audio" (pulse); pa_context_connect() has failed: Connection refused
 Feb 06 04:58 : player: played "classical-guitar-classicals/Andy Hackbarth - Newton： Amazing Grace [1780850765].mp3"
 Feb 06 16:09 : exception: Failed to enable output "pulse audio" (pulse); pa_context_connect() has failed: Connection refused
+Feb 07 05:46 : player: played "classical-guitar-classicals/Andy Hackbarth - Newton： Amazing Grace [1780850765].mp3"
+Feb 07 05:50 : exception: Failed to enable output "pulse audio" (pulse); pa_context_connect() has failed: Connection refused
+Feb 07 06:30 : player: played "classical-guitar-classicals/Andy Hackbarth - Newton： Amazing Grace [1780850765].mp3"
+Feb 07 12:58 : exception: Failed to enable output "pulse audio" (pulse); pa_context_connect() has failed: Connection refused
