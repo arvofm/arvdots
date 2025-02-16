@@ -3,7 +3,7 @@
 
 ### vars
 set $mod		Mod4
-set $wallpaper		$HOME/pics/wps/inferno.jpg
+set $wallpaper		$HOME/pics/wps/templeos1.png
 set $term		foot
 set $menu		fuzzel
 set $file_manager 	thunar
@@ -31,11 +31,11 @@ focus_wrapping no
 
 ### io
 input "type:keyboard" {
-	xkb_layout us
+	xkb_layout us,tr
 	xkb_options ctrl:nocaps
 	xkb_capslock disabled
 	xkb_numlock enabled
-	repeat_delay 250
+	repeat_delay 350
 	repeat_rate 25
 }
 input "type:touchpad" {
@@ -113,6 +113,7 @@ bindsym --no-repeat $mod+Mod1+space 	floating toggle
 bindsym --no-repeat $mod+Mod1+Up 	fullscreen
 bindsym --no-repeat $mod+Shift+Tab 	move scratchpad
 bindsym --no-repeat $mod+Control+Tab 	scratchpad show
+bindsym --no-repeat $mod+Mod1+k		input "type:keyboard" xkb_switch_layout next; exec notify-send -a "sway" -r 10385 "Sway" "Keyboard layout changed."
 mode "resize" {
      bindsym Left	resize shrink width 10px
      bindsym Down 	resize grow   height 10px

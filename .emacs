@@ -51,7 +51,7 @@ This command does the inverse of fill-paragraph."
 (keymap-global-set "M-g M-g" 'search-backward)			;; old-val: M-g g, what a waste
 (keymap-global-set "C-M-q" 'unfill-paragraph)
 (global-set-key [remap zap-to-char] 'zap-up-to-char)		;; M-z
-(global-set-key [remap dabbrev-expand] 'hippie-expand)		;; M-/
+(global-set-key [remap dabbrev-expand] 'hippie-expand)		;; M-/ , M-TAB for all
 
 ;; [org]
 (setq-default org-hide-emphasis-markers t
