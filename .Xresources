@@ -1,0 +1,33 @@
+! URXVT
+
+!! Basic appearance
+URxvt.font: xft:Source Code Pro:size=16
+URxvt.boldFont: xft:Source Code Pro:bold:size=16
+URxvt.italicFont: xft:Source Code Pro:italic:size=16
+URxvt.boldItalicFont: xft:Source Code Pro:bold:italic:size=16
+
+!! Window size and appearance
+URxvt.geometry: 92x24
+URxvt.internalBorder: 5
+URxvt.cursorBlink: false
+URxvt.cursorUnderline: false
+
+!! Colors
+URxvt.background: #090909
+URxvt.foreground: #F2F2F2
+URxvt.depth: 32
+
+!! Scrollbar
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+
+!! Terminal features
+URxvt.saveLines: 5000
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
+!! Extensions
+URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1

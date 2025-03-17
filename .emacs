@@ -32,6 +32,17 @@ This command does the inverse of fill-paragraph."
   (let ((fill-column most-positive-fixnum))
     (fill-paragraph)))
 
+;; kill easy
+(defun kill-other-window-and-buffer ()
+  "Kill the buffer and delete the other window in the current frame.
+Assumes a two-window layout; if there are more windows, it targets the next one."
+  (interactive)
+  (let ((other-window (next-window)))
+    (kill-buffer (window-buffer other-window))
+    (delete-window other-window)))
+
+(global-set-key (kbd "C-c k") 'kill-other-window-and-buffer)
+
 ;; electromagnetics
 (electric-pair-mode 1)
 (electric-layout-mode 1)
@@ -50,6 +61,7 @@ This command does the inverse of fill-paragraph."
 (keymap-global-set "M-g g" 'search-forward)			;; old val: goto-line
 (keymap-global-set "M-g M-g" 'search-backward)			;; old-val: M-g g, what a waste
 (keymap-global-set "C-M-q" 'unfill-paragraph)
+(keymap-global-set "C-x C-k k" 'kill-other-window-and-buffer)
 (global-set-key [remap zap-to-char] 'zap-up-to-char)		;; M-z
 (global-set-key [remap dabbrev-expand] 'hippie-expand)		;; M-/ , M-TAB for all
 
