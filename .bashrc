@@ -13,7 +13,7 @@ dizathura () {
 }
 
 # alias
-alias ls='lsd --group-directories-first --icon never'
+alias ls='lsd -F --group-directories-first --icon never'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -vrf'
@@ -22,25 +22,22 @@ alias cp='rsync -rphv'
 alias mkdir='mkdir -pv'
 alias grep='grep --color=auto -i -nH --null -e'
 alias cat='bat'
-#alias vim='nvim'
+alias imv='imv -f'
 alias du='dust'
-alias feh='feh -FZ'
-alias fehl='feh -l'
 alias sxiv='sxiv -fr'
 alias mpv='mpv --fs'
 alias q='exit'
-alias sn='sudo poweroff'
-alias rb='sudo reboot'
 alias cg='cd ~/.config'
 alias xi='sudo xbps-install -Su'
-alias xq='xbps-query -l | grep'
+alias xq='xbps-query -s'
 alias xs='xbps-query -Rs'
 alias xr='sudo xbps-remove -R'
 alias zathura='dizathura'
-alias ytdlpv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*+ba'"
-alias ytdlpa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'ba'"
-alias ytdlppv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'bv*+ba'"
-alias ytdlppa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs --download-archive videos.txt -f 'ba'"
+alias tarc='tar -czvf'
+alias tarx='tar -xvzf'
+alias tarl='tar -tzvf'
+alias ytdlpv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
+alias ytdlpa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail -f 'ba' --remux-video mkv"
 alias webcam='\mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 # colorize man pages

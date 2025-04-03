@@ -3,14 +3,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(c-basic-offset 4)
  '(custom-enabled-themes '(gruber-darker))
  '(custom-safe-themes
-   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7" default))
+   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7"
+     default))
  '(display-line-numbers t)
  '(display-line-numbers-type 'relative)
  '(global-display-line-numbers-mode t)
- '(org-agenda-files
-   '("~/docs/notes/life/nowaways/activities.org" "/home/wizard/docs/dev/emacs/emacs-playground-n-notes.org"))
  '(package-selected-packages
    '(gdscript-mode org-modern markdown-mode gruber-darker-theme)))
 

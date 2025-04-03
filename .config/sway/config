@@ -19,7 +19,7 @@ set $color_bg_opq		#181818dd
 set $color_active		#96a6c8
 set $color_active_opq		#96a6c8aa
 set $color_inactive		#403745
-set $color_border		#f5c2e755
+set $color_border		#f5c2e7aa
 set $color_urgent		#f43841
 
 
