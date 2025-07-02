@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BOOKMARK_FILE="$HOME/.local/share/bookmarks/internet-bookmarks"
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    wtype "$(grep -v "^#" "$BOOKMARK_FILE" | fuzzel --placeholder="Bookmarks" -i -l30 -d -w80 -f "Source Code Pro:size=8" | cut -d# -f1)"
+elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
+    xdotool type "$(grep -v "^#" "$BOOKMARK_FILE" | dmenu -i -c -l30 -p "Bookmarks" -cw300 | cut -d# -f1)"
+else
+    notify-send -a "grabbokmark" -u critical -t 5000 -i -r 23498 "XDG_SESSION_TYPE not set, not sure what to do."
+    exit 1
+fi
+
+exit 0

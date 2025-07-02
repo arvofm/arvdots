@@ -52,8 +52,8 @@ if [ -n "$SELECT" ]; then
     VID=$(MakeNameOnly "$SELECT")
     notify-send -a "playlistopen" -r 5666 -i "audio-headphones-symbolic" "While Study" "You have chosen: \n $VID"
     # Open file in mpv
-    [ "$XDG_SESSION_TYPE" == "wayland" ] && mpv "$SELECT"
-    [ "$XDG_SESSION_TYPE" == "x11" ] && mpv --no-config "$SELECT"
+    [ "$XDG_SESSION_TYPE" == "wayland" ] && mpv --really-quiet "$SELECT"
+    [ "$XDG_SESSION_TYPE" == "x11" ] && mpv --really-quiet "$SELECT"
 else
     notify-send -a "playlistopen" -r 5666 "While Study" "You haven't chosen anything to listen to."
 fi

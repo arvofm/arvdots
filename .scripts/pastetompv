@@ -17,6 +17,6 @@ fi
 
 notify-send -a "pastetompv" -r 32222 "pastetompv" "Playing media from clipboard"
 
-[ -n "${URL}" ] && mpv -fs "${URL}"
+[ -n "${URL}" ] && mpv --really-quiet -fs "${URL}"
 
 exit 0

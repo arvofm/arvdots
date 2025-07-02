@@ -13,31 +13,32 @@ dizathura () {
 }
 
 # alias
-alias ls='lsd -F --group-directories-first --icon never'
+alias ls='lsd -F -X --group-directories-first --icon never'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -vrf'
 alias mv='mv -v'
 alias cp='rsync -rphv'
 alias mkdir='mkdir -pv'
-alias grep='grep --color=auto -i -nH --null -e'
-alias cat='bat'
+alias grepp='grep --color=auto -i -nH --null -e'
+alias catt='bat'
 alias imv='imv -f'
 alias du='dust'
 alias sxiv='sxiv -fr'
-alias mpv='mpv --fs'
 alias q='exit'
 alias cg='cd ~/.config'
 alias xi='sudo xbps-install -Su'
 alias xq='xbps-query -s'
 alias xs='xbps-query -Rs'
+alias xf='xbps-query -f'
 alias xr='sudo xbps-remove -R'
 alias zathura='dizathura'
 alias tarc='tar -czvf'
 alias tarx='tar -xvzf'
 alias tarl='tar -tzvf'
-alias ytdlpv="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
-alias ytdlpa="yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail -f 'ba' --remux-video mkv"
+alias ytdlpv="yt-dlp -N 3 --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
+alias ytdlpva="yt-dlp -N 3 --embed-metadata --embed-thumbnail -x --audio-quality 0"
+alias ytdlpa="yt-dlp -N 3 --embed-metadata -x --audio-quality 0"
 alias webcam='\mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
 # colorize man pages
@@ -48,3 +49,5 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+eval "$(zoxide init bash)"

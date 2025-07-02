@@ -12,6 +12,7 @@ set $browser		qutebrowser
 set $clip_mpv 		clipmpv
 set $paste_mpv		pastetompv
 set $kill_flatpak 	killflatpak
+set $grab_bookmark	grabbookmark
 #### colors
 set $color_text			#e4e4ef
 set $color_bg			#181818
@@ -60,7 +61,7 @@ bar {
     workspace_min_width 36
     tray_padding 10
 
-    status_command while ~/.config/sway/script/status_command.sh; do sleep 0.5; done
+    status_command while ~/.config/sway/script/status_command.sh; do sleep 1.0; done
 
     colors {
         statusline $color_text
@@ -114,6 +115,7 @@ bindsym --no-repeat $mod+Mod1+Up 	fullscreen
 bindsym --no-repeat $mod+Shift+Tab 	move scratchpad
 bindsym --no-repeat $mod+Control+Tab 	scratchpad show
 bindsym --no-repeat $mod+Mod1+k		input "type:keyboard" xkb_switch_layout next; exec notify-send -a "sway" -r 10385 "Sway" "Keyboard layout changed."
+bindsym --no-repeat $mod+Mod1+d		input "1:1:AT_Translated_Set_2_keyboard" events disabled; exec notify-send -a "sway" -r 10385 "Sway" "Laptop keyboard disabled."
 mode "resize" {
      bindsym Left	resize shrink width 10px
      bindsym Down 	resize grow   height 10px
@@ -165,6 +167,7 @@ bindsym --no-repeat $mod+b 		exec $browser
 bindsym --no-repeat $mod+v		exec $clip_mpv
 bindsym --no-repeat $mod+z		exec $paste_mpv
 bindsym --no-repeat $mod+Shift+o	exec $kill_flatpak
+bindsym --no-repeat $mod+Shift+b	exec $grab_bookmark
 bindsym --no-repeat $mod+l 		exec swaylock
 bindsym --no-repeat $mod+n		exec swaync-client -t -sw
 #### multimedia
@@ -185,6 +188,8 @@ bindsym --locked Print 			   exec grimshot copy area
 ### assignments
 assign [app_id="Firefox"]					$wsp2
 for_window [app_id="Firefox"] workspace				$wsp2
+assign [app_id="LibreWolf"]					$wsp2
+for_window [app_id="LibreWolf"] workspace			$wsp2
 assign [app_id="zen-alpha"]					$wsp2
 for_window [app_id="zen-alpha"] workspace			$wsp2
 assign [class="Chromium"]					$wsp2

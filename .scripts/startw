@@ -37,7 +37,6 @@ export BEMENU_OPTS="-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR="emacs"
 export TERMINAL="foot"
-export BROWSER="chromium"
 export TEXLIVE="/usr/share"
 
 # You Know...
