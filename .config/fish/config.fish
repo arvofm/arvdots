@@ -39,35 +39,37 @@ function __zathura
 end
 
 # alias
-alias ls='lsd -F --group-directories-first --icon never'
+alias ls='lsd -F -X --group-directories-first --icon never'
 abbr la 'ls -a'
 abbr ll 'ls -l'
 abbr rm 'rm -vrf'
 abbr mv 'mv -v'
 abbr cp 'rsync -rphv'
 abbr mkdir 'mkdir -pv'
-abbr grep 'grep --color=auto -i -nH --null -e'
+abbr grepp 'grep --color=auto -i -nH --null -e'
+abbr catt 'bat'
 abbr du 'dust'
-abbr cat 'bat'
-abbr imv 'imv -f'
-alias zathura='__zathura'
 abbr q 'exit'
 abbr cg 'cd ~/.config'
 abbr xi 'sudo xbps-install -Su'
 abbr xq 'xbps-query -s'
 abbr xs 'xbps-query -Rs'
+abbr xf 'xbps-query -f'
 abbr xr 'sudo xbps-remove -R'
+alias zathura='__zathura'
 abbr tarc 'tar -czvf'
 abbr tarx 'tar -xvzf'
 abbr tarl 'tar -tzvf'
-abbr ytdlpv "yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
-abbr ytdlpa "yt-dlp --external-downloader=aria2c --embed-metadata --embed-thumbnail -f 'ba' --remux-video mkv"
+abbr ytdlpv "yt-dlp -N 3 --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
+abbr ytdlpva "yt-dlp -N 3 --embed-metadata --embed-thumbnail -x --audio-quality 0"
+abbr ytdlpa "yt-dlp -N 3 --embed-metadata -x --audio-quality 0"
 abbr webcam 'mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 abbr ffaudiocut 'ffmpeg -i input.m4a -ss 00:00:00 -t 00:00:10 -acodec copy output.m4a'
-abbr godot 'godot --rendering-driver opengl3'
 
 if status --is-login
 
     [ "$(tty)" = "/dev/tty1" ] && bash -c "~/.scripts/startw"
 
 end
+
+zoxide init fish | source

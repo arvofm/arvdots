@@ -2,16 +2,28 @@
 
 #
 # From a directory filled with videos and songs, select one and play
-# NOTE: Since I just download them by yt-dl, it appends a f*ckin [xxxx] to the file name; to not get bothered with renaming
-# everything I download using yt-dl, this script detects the [xxxx] in filename and acts like there is one. If you do not
-# have such issues, you should change FILE_HAVE_FICKEN_BRACKETS to false, and all should be done.
+# NOTE: Since I just download them by yt-dlp, it appends a f*ckin
+# [xxxx] to the file name; to not get bothered with renaming
+# everything I download using yt-dlp, this script detects the [xxxx]
+# in filename and acts like there is one. If you do not have such
+# issues, you should change FILES_HAVE_FICKEN_BRACKETS to false, and
+# all should be well.
 #
 
 PLAYLIST_DIR="$HOME/pics/while-study"
 FILES_HAVE_FICKEN_BRACKETS=true
+FORMATS_FIND=( \
+  -name '*.webm'  -o \
+  -name '*.mkv'  -o \
+  -name '*.mp3'  -o \
+  -name '*.mp4'  -o \
+  -name '*.m4a'  -o \
+  -name '*.opus' -o \
+  -name '*.aac'    \
+)
 
 # Select from directory
-SELECT=$(find "$PLAYLIST_DIR" -type f \( -name "*.webm" -o -name "*.mkv" -o -name "*.mp3" -o -name "*.mp4" \))
+SELECT=$(find "$PLAYLIST_DIR" -type f \( "${FORMATS_FIND[@]}" \))
 
 # Function to trim pathway string
 MakeNameOnly() {
@@ -47,7 +59,7 @@ fi
 
 if [ -n "$SELECT" ]; then
     # Modify `select` variable to have its full pathname
-    SELECT=$(find "$PLAYLIST_DIR" -type f \( -name "*.webm" -o -name "*.mkv" -o -name "*.mp3" -o -name "*.mp4" \) | grep "$SELECT" )
+    SELECT=$(find "$PLAYLIST_DIR" -type f \( "${FORMATS_FIND[@]}" \) | grep "$SELECT" )
     # Trim again
     VID=$(MakeNameOnly "$SELECT")
     notify-send -a "playlistopen" -r 5666 -i "audio-headphones-symbolic" "While Study" "You have chosen: \n $VID"
