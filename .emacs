@@ -41,8 +41,6 @@ Assumes a two-window layout; if there are more windows, it targets the next one.
     (kill-buffer (window-buffer other-window))
     (delete-window other-window)))
 
-(global-set-key (kbd "C-c k") 'kill-other-window-and-buffer)
-
 ;; electromagnetics
 (electric-pair-mode 1)
 (electric-layout-mode 1)
