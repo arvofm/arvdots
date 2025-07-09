@@ -1,21 +1,23 @@
 # Video options
 ytdl-format=best*[height<=?1080]+bestaudio
-saturation=15
-video-sync=display-resample
 hdr-compute-peak=no
-#sharpen=1
+saturation=15
+sharpen=1
 
 # Volume
 volume=70
 
 # Image viewer options
 image-display-duration=5
+#loop-file=inf
 
 ## General
+osd-duration=6000
 osd-font-size=18
-osd-color='#779DB3'
-osd-border-color='#181818'
-osd-border-size=1
+osd-color='#F37878'
+osd-border-color='#000000'
+osd-border-size=3
+no-osd-bar
 osd-align-x=right
 osd-align-y=bottom
 loop-playlist=inf
@@ -32,7 +34,7 @@ sub-border-color='#000000'
 sub-border-size=0.9
 sub-spacing=0.5
 sub-ass-override=strip
-sub-line-spacing=0.5
+sub-ass-line-spacing=0.5
 sub-codepage=utf-8
 sub-scale=1.2
 

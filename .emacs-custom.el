@@ -12,7 +12,8 @@
  '(display-line-numbers-type 'relative)
  '(global-display-line-numbers-mode t)
  '(package-selected-packages
-   '(gdscript-mode org-modern markdown-mode gruber-darker-theme)))
+   '(gruber-darker-theme gruvbox-theme markdown-mode miasma-theme
+			 org-modern sculpture-themes standard-themes)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

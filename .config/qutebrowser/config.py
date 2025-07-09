@@ -35,6 +35,7 @@ c.content.media.video_capture = False
 c.content.notifications.enabled = False
 c.content.pdfjs = False
 c.content.prefers_reduced_motion = False
+c.content.private_browsing = True
 c.content.webgl = True
 
 ## Qt
@@ -70,7 +71,7 @@ c.messages.timeout = 5000
 c.tabs.title.alignment = 'center'
 c.tabs.new_position.unrelated = 'next'
 c.window.hide_decoration = True
-c.zoom.default = '90%'
+c.zoom.default = '100%'
 
 ## Aliases
 c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'dm':'config-cycle colors.webpage.darkmode.enabled'}
@@ -79,8 +80,8 @@ c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save
 config.source('./themes/city.py')
 
 ## URL related
-c.url.start_pages = ['http://localhost/']
-c.url.default_page = 'http://localhost/'
+c.url.start_pages = ['https://duck.ai/']
+c.url.default_page = 'https://duck.ai/'
 # c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 
