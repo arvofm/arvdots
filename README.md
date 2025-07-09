@@ -7,10 +7,13 @@ This is a collection of common dotfiles I use from time to time. Beware that whe
 There are all kinds of standard config files in `.config` directory, they are not ultimately customized, and serve as a general template for those who wants to further customize their system; or you can use them as they are.
 
 ### scripts ?
+<<<<<<< HEAD
 My own scripts, some config files in `.config` use these custom scripts to make life easier. If you want to use these, make sure to add this path to `$PATH`.
+=======
+My own scripts, some config files in `.config` use these custom scripts to make life easier. If you want to use these, rename the directory name to `.scripts`, and make sure to add this path to `$PATH`.
+>>>>>>> 69374fa (minor adjustments againnn)
 
 ### others ?
 * `.xinitrc`: Just a copy of the official xinitrc with additional things, from the times I used dwm and X11.
-* `.fehbg`: Sets wallpaper using feh, nowadays I use swaybg.
 * `inst.txt`: I use these pieces of software, to be updated in a later time.
 * `guide.md`: A guide to build up from a base install of void linux, written for myself.
