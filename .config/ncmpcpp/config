@@ -21,7 +21,6 @@ centered_cursor                  = "yes"
 ignore_leading_the               = "yes"
 playlist_disable_highlight_delay = 2
 allow_for_physical_item_deletion = "no"
-execute_on_song_change = notify-send -a "musicchange" -r 546112 -i "emblem-music-symbolic" -u low "Now Playing" "$(mpc --format '%title% \nby %artist%' current)"
 locked_screen_width_part         = "50"
 ask_for_locked_screen_width_part = "yes"
 display_bitrate                  = "no"

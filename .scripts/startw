@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # SETTING ENVIRONMENT VARIABLES
 
@@ -24,7 +24,7 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QUTE_QT_WRAPPER="PyQt6"
 
-# Because I Use NVIDIA
+# Because I Use nvidia
 export LIBVA_DRIVER_NAME="nvidia"
 export __GL_SYNC_TO_VBLANK=1
 export __GLX_VENDOR_LIBRARY_NAME="nvidia"
@@ -36,8 +36,16 @@ export XKB_DEFAULT_LAYOUT="us"
 export BEMENU_OPTS="-i -w -c -l 30 --fixed-height -B 1 -R 10 -H 20 -W 0.5"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export EDITOR="emacs"
+export BROWSER="qutebrowser"
 export TERMINAL="foot"
 export TEXLIVE="/usr/share"
+
+# Pick a Wallpaper
+export WALLPAPER_DIR="$HOME/pics/wps/"
+SELECTIONS=("calm-horizon.png" "coffee-cup.jpg" "dark-ravin.jpg"
+"dune.png" "ferns-green.jpg" "forest-hut.png" "forest.jpg"
+"night-city.jpg" "templeos1.png")
+export WALLPAPER="${WALLPAPER_DIR}${SELECTIONS[ $RANDOM % ${#SELECTIONS[@]} ]}"
 
 # You Know...
 export $(dbus-launch)

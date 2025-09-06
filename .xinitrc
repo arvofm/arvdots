@@ -32,6 +32,7 @@ numlockx on
 xset r rate 195 23
 xset b off
 setxkbmap -layout us
+setxkbmap -option ctrl:nocaps
 
 
 # environment variables
@@ -57,8 +58,12 @@ export XDG_MUSIC_DIR="$HOME/music"
 export XDG_PICTURES_DIR="$HOME/pics"
 
 # initials
+#slstatus &
 #sh "$HOME/.fehbg"
 #sxhkd &
-picom &
+#picom &
 #xautolock -secure -time 25 -locker slock &
+#exec dwm
 qtile start -b x11
+
+

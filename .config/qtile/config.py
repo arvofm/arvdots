@@ -107,7 +107,7 @@ def setColorScheme(colorscheme) -> dict[str, str]:
 
 
 # VARIABLES
-myTerm               = "urxvt"
+myTerm               = "st"
 myMenu               = 'dmenu_run -i -c -l 30 -p "Run" -cw 300'
 myScreenLockTool     = "slock"
 if qtile.core.name == "wayland":

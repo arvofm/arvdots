@@ -11,7 +11,7 @@
 #
 
 PLAYLIST_DIR="$HOME/pics/while-study"
-FILES_HAVE_FICKEN_BRACKETS=true
+FILES_HAVE_FICKEN_BRACKETS=false
 FORMATS_FIND=( \
   -name '*.webm'  -o \
   -name '*.mkv'  -o \
@@ -23,13 +23,13 @@ FORMATS_FIND=( \
 )
 
 # Select from directory
-SELECT=$(find "$PLAYLIST_DIR" -type f \( "${FORMATS_FIND[@]}" \))
+SELECT=$(find "$PLAYLIST_DIR" -type f \( "${FORMATS_FIND[@]}" \) | sort)
 
 # Function to trim pathway string
 MakeNameOnly() {
     local line="$1"
     modified=${line##*/}
-    if [ $FILES_HAVE_FICKEN_BRACKETS ]; then
+    if [ "$FILES_HAVE_FICKEN_BRACKETS" = true ]; then
         modified=${modified%[*}
     else
         modified=${modified%.*}
@@ -48,8 +48,7 @@ done <<< "$SELECT"
 
 # Select from the files, depending on wayland or X11
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    # SELECT=$(echo "$FILES_ONLY" | bemenu -i -w -c -l 30 --fixed-height -p "Playlists:" -B 1 -R 10 -H 22 -W 0.5)
-    SELECT=$(echo "$FILES_ONLY" | fuzzel --placeholder="while you study" -i -l 25 -d -w 60 -f "Source Code Pro:size=8" --line-height=24px)
+    SELECT=$(echo "$FILES_ONLY" | fuzzel --placeholder="while you study" -i -l 28 -d -w 45 -f "Source Code Pro:size=8" --line-height=24px)
 elif [ "$XDG_SESSION_TYPE" = "x11" ]; then
     SELECT=$(echo "$FILES_ONLY" | dmenu -i -c -l 30 -p "Playlists" -cw 300)
 else

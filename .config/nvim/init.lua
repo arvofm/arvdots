@@ -37,9 +37,6 @@ require('vimtex')
 -- snippets
 require('ultisnips')
 
--- AI completion
-require('supermaven')
-
 -- finally, all my own
 require('commands')
 

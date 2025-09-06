@@ -51,15 +51,16 @@ abbr catt 'bat'
 abbr du 'dust'
 abbr q 'exit'
 abbr cg 'cd ~/.config'
-abbr xi 'sudo xbps-install -Su'
+abbr xi 'sudo xbps-install -Suv'
 abbr xq 'xbps-query -s'
 abbr xs 'xbps-query -Rs'
 abbr xf 'xbps-query -f'
-abbr xr 'sudo xbps-remove -R'
+abbr xr 'sudo xbps-remove -Rv'
 alias zathura='__zathura'
 abbr tarc 'tar -czvf'
 abbr tarx 'tar -xvzf'
 abbr tarl 'tar -tzvf'
+abbr mg 'mg -n'
 abbr ytdlpv "yt-dlp -N 3 --embed-metadata --embed-thumbnail --embed-subs --write-subs -f 'bv*[height=1080]+ba/b[height=1080] / bv*+ba/b'"
 abbr ytdlpva "yt-dlp -N 3 --embed-metadata --embed-thumbnail -x --audio-quality 0"
 abbr ytdlpa "yt-dlp -N 3 --embed-metadata -x --audio-quality 0"

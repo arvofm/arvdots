@@ -50,7 +50,6 @@ return packer.startup(
         use 'hrsh7th/cmp-cmdline'               -- cmdline completions
         use 'hrsh7th/cmp-nvim-lua'              -- source for neovim Lua API
         use 'hrsh7th/nvim-cmp'                  -- completion plugin
-        use 'supermaven-inc/supermaven-nvim'    -- AI Completion
 
         -- snippets
         use 'L3MON4D3/LuaSnip'

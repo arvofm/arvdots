@@ -1,6 +1,6 @@
 ;; best config ever
 
-;; remove annoyances
+;; [quality]
 (setq custom-file "~/.emacs-custom.el")
 (load-file custom-file)
 (setq inhibit-startup-screen t)
@@ -8,23 +8,17 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (blink-cursor-mode 0)
-(setq dired-kill-when-opening-new-dired-buffer t)
+(fido-mode t)
 (keymap-unset minibuffer-local-completion-map "SPC")
 (keymap-unset minibuffer-local-completion-map "?")
+(setq-default dired-kill-when-opening-new-dired-buffer t)
+(setq-default org-timer-default-timer "50")
+(setq-default dictionary-server "dict.org")
 
-;; looks
+;; [landing]
 (setq-default initial-buffer-choice "~/docs/notes/life/nowaways/activities.org")
-(custom-set-faces
- '(trailing-whitespace ((t (:foreground "#261824" :background nil :strike-through "#FF4075")))) )
 
-
-;; for comfi
-(fido-mode t)
-
-;; [editing]
-(setq-default duplicate-line-final-position 1)
-
-;; fill
+;; [custom]
 (defun unfill-paragraph ()
   "Replace newline chars in current paragraph by single spaces.
 This command does the inverse of fill-paragraph."
@@ -32,7 +26,6 @@ This command does the inverse of fill-paragraph."
   (let ((fill-column most-positive-fixnum))
     (fill-paragraph)))
 
-;; kill easy
 (defun kill-other-window-and-buffer ()
   "Kill the buffer and delete the other window in the current frame.
 Assumes a two-window layout; if there are more windows, it targets the next one."
@@ -41,18 +34,17 @@ Assumes a two-window layout; if there are more windows, it targets the next one.
     (kill-buffer (window-buffer other-window))
     (delete-window other-window)))
 
-;; electromagnetics
+;; [editing]
+(setq-default shift-select-mode nil)
+(setq-default duplicate-line-final-position 1)
 (electric-pair-mode 1)
 (electric-layout-mode 1)
 
-;; match paren
-(setq-default show-paren-context-when-offscreen t)
-(setq-default show-paren-when-point-inside-paren t)
-
-;; basic editing
-(setq-default shift-select-mode nil)
-(setq-default show-trailing-whitespace t) ; face: trailing-whitespace
+;; [looks]
+(setq-default show-trailing-whitespace t)
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-12"))
+(custom-set-faces
+ '(trailing-whitespace ((t (:foreground "#261824" :background nil :strike-through "#FF4075")))) )
 
 ;; [mapping]
 (keymap-global-set "C-x C-o" 'duplicate-line)			;; old val: delete-blank-lines
@@ -94,7 +86,3 @@ Assumes a two-window layout; if there are more windows, it targets the next one.
       kept-old-versions 2      ; Keep 2 oldest versions
       version-control t)       ; Use versioned backups
 
-;; Notes
-;;
-;; Check the value of a variable
-;; ex: (default-value 'electric-mode)

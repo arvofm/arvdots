@@ -32,5 +32,5 @@ internet_label="🔗 $(nmcli -t -g NAME connection show --active | head -n 1)"
 date_label="⏲ $(date +'%I:%M %p')"
 
 # echo area
-echo "$mpd_label  $mic_label $volume_label   $brightness_label   $battery_label   $memory_label   $internet_label   $date_label  |   arvo "
+echo "$mpd_label  $mic_label $volume_label   $brightness_label   $battery_label   $memory_label   $internet_label   $date_label  | 🌵 arvo "
 

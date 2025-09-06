@@ -24,8 +24,8 @@ c.content.blocking.hosts.block_subdomains = True
 c.content.blocking.method = 'both'
 c.content.cache.maximum_pages = 10
 c.content.canvas_reading = True
-c.content.cookies.accept = 'no-unknown-3rdparty'
-c.content.cookies.store = True          # So sad I cant make exceptions
+c.content.cookies.accept = 'no-3rdparty'
+c.content.cookies.store = False          # So sad I cant make exceptions
 c.content.blocking.whitelist = []
 c.content.geolocation = False
 c.content.headers.do_not_track = False
@@ -34,9 +34,10 @@ c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
 c.content.notifications.enabled = False
 c.content.pdfjs = False
-c.content.prefers_reduced_motion = False
+c.content.prefers_reduced_motion = True
 c.content.private_browsing = True
-c.content.webgl = True
+c.content.webgl = False
+c.content.javascript.enabled = False
 
 ## Qt
 c.qt.workarounds.disable_accelerated_2d_canvas = 'never'
@@ -74,14 +75,14 @@ c.window.hide_decoration = True
 c.zoom.default = '100%'
 
 ## Aliases
-c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'dm':'config-cycle colors.webpage.darkmode.enabled'}
+c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save', 'dm':'config-cycle colors.webpage.darkmode.enabled', 'js':'config-cycle content.javascript.enabled'}
 
 ## Theme
 config.source('./themes/city.py')
 
 ## URL related
-c.url.start_pages = ['https://duck.ai/']
-c.url.default_page = 'https://duck.ai/'
+c.url.start_pages = ['https://start.duckduckgo.com/']
+c.url.default_page = 'https://start.duckduckgo.com/'
 # c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 

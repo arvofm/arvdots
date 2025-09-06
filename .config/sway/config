@@ -3,7 +3,7 @@
 
 ### vars
 set $mod		Mod4
-set $wallpaper		$HOME/pics/wps/templeos1.png
+set $wallpaper		$WALLPAPER
 set $term		foot
 set $menu		fuzzel
 set $file_manager 	thunar
@@ -16,7 +16,7 @@ set $grab_bookmark	grabbookmark
 #### colors
 set $color_text			#e4e4ef
 set $color_bg			#181818
-set $color_bg_opq		#181818dd
+set $color_bg_opq		#181818aa
 set $color_active		#96a6c8
 set $color_active_opq		#96a6c8aa
 set $color_inactive		#403745
@@ -50,6 +50,7 @@ output * {
     allow_tearing yes
     max_render_time off
 }
+seat * xcursor_theme "Vanilla-DMZ" 20
 
 
 ### swaybar
@@ -127,6 +128,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 ##### workspaces
+workspace_layout tabbed
 set $wsp1 '1:>_'
 set $wsp2 '2:www'
 set $wsp3 '3:{*}'
